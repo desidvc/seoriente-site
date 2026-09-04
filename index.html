@@ -1,0 +1,2665 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Seoriente Soluções — Tecnologia, inteligência e direção para o seu negócio</title>
+<meta name="description" content="A Seoriente Soluções une tecnologia, inteligência e estratégia para transformar desafios em direção clara. Conheça o Orizon Broker, Daroça, Seoriente IA, BI e Automação.">
+<link rel="icon" href="images/symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+
+/* ---------- Tokens ---------- */
+:root{
+  /* Marca */
+  --green-950:#04120F;
+  --green-900:#071E1B;
+  --green-850:#08231F;
+  --green-800:#0A2622;
+  --green-700:#0E332C;
+  --green-600:#14453B;
+  --gold-600:#916B3E;
+  --gold-500:#B98D53;
+  --gold-400:#C9A46A;
+  --gold-300:#DCC49A;
+  --sand:#BBAFA1;
+  --cream:#F3EFEB;
+  --cream-2:#EAE4DB;
+  --ink:#0E1A17;
+  --ink-soft:#41544F;
+
+  /* Superfícies */
+  --bg:var(--green-900);
+  --on-dark:#F3EFEB;
+  --on-dark-muted:rgba(243,239,235,.70);
+  --on-light:var(--ink);
+  --on-light-muted:#55655F;
+  --line-dark:rgba(201,164,106,.22);
+  --line-light:rgba(14,26,23,.12);
+
+  /* Tipografia */
+  --font-display:'Sora',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+  /* Medidas */
+  --container:1180px;
+  --radius:18px;
+  --radius-sm:12px;
+  --radius-lg:26px;
+  --header-h:78px;
+  --shadow-sm:0 2px 10px rgba(4,18,15,.10);
+  --shadow:0 18px 50px -18px rgba(4,18,15,.45);
+  --shadow-gold:0 18px 44px -20px rgba(185,141,83,.55);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* ---------- Reset ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 18px);-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--on-dark);
+  font-family:var(--font-body);font-size:1rem;line-height:1.7;
+  font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,svg,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;line-height:1.14;letter-spacing:-.02em;margin:0 0 .6em}
+p{margin:0 0 1.1em}
+ul{margin:0;padding:0;list-style:none}
+::selection{background:var(--gold-500);color:#fff}
+:focus-visible{outline:2px solid var(--gold-400);outline-offset:3px;border-radius:4px}
+
+/* ---------- Layout ---------- */
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:24px}
+.section{padding:clamp(72px,9vw,124px) 0;position:relative}
+.section--tight{padding:clamp(56px,6vw,84px) 0}
+.section--dark{background:var(--green-900);color:var(--on-dark)}
+.section--darker{background:var(--green-950);color:var(--on-dark)}
+.section--deep{background:linear-gradient(180deg,var(--green-900),var(--green-850) 60%,var(--green-900));color:var(--on-dark)}
+.section--light{background:var(--cream);color:var(--on-light)}
+.section--light h1,.section--light h2,.section--light h3,.section--light h4{color:var(--ink)}
+
+.grid{display:grid;gap:clamp(18px,2.4vw,30px)}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+
+/* ---------- Tipografia utilitária ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-display);font-size:.72rem;font-weight:600;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--gold-400);
+  margin:0 0 18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-500);opacity:.8}
+.section--light .eyebrow{color:var(--gold-600)}
+.h-xl{font-size:clamp(2.4rem,5.4vw,4rem)}
+.h-lg{font-size:clamp(2rem,3.6vw,2.9rem)}
+.h-md{font-size:clamp(1.5rem,2.4vw,2rem)}
+.h-sm{font-size:clamp(1.12rem,1.6vw,1.3rem)}
+.lead{font-size:clamp(1.04rem,1.35vw,1.18rem);color:var(--on-dark-muted);max-width:62ch}
+.section--light .lead{color:var(--on-light-muted)}
+.muted{color:var(--on-dark-muted)}
+.section--light .muted{color:var(--on-light-muted)}
+.gold{color:var(--gold-400)}
+.section--light .gold{color:var(--gold-600)}
+.center{text-align:center}
+.center .eyebrow{justify-content:center}
+.center .lead{margin-inline:auto}
+.max-60{max-width:60ch}
+.mb-0{margin-bottom:0}
+.section-head{max-width:760px;margin-bottom:clamp(34px,4.4vw,58px)}
+.section-head.center{margin-inline:auto}
+
+/* ---------- Botões ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-display);font-weight:600;font-size:.94rem;letter-spacing:.01em;
+  padding:15px 28px;border-radius:999px;border:1px solid transparent;cursor:pointer;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+  white-space:nowrap;
+}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .3s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover svg{transform:translateX(3px)}
+.btn--gold{background:linear-gradient(135deg,var(--gold-400),var(--gold-600));color:#0B211D;box-shadow:var(--shadow-gold)}
+.btn--gold:hover{box-shadow:0 22px 50px -18px rgba(201,164,106,.75)}
+.btn--ghost{border-color:rgba(243,239,235,.30);color:var(--on-dark)}
+.btn--ghost:hover{border-color:var(--gold-400);color:var(--gold-300);background:rgba(201,164,106,.08)}
+.btn--dark{background:var(--green-900);color:var(--cream)}
+.btn--dark:hover{background:var(--green-700)}
+.btn--outline-dark{border-color:rgba(14,26,23,.22);color:var(--ink)}
+.btn--outline-dark:hover{border-color:var(--gold-600);color:var(--gold-600);background:rgba(185,141,83,.07)}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.center .btn-row{justify-content:center}
+
+.link-arrow{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--font-display);
+  font-weight:600;font-size:.92rem;color:var(--gold-400);
+}
+.link-arrow svg{width:17px;height:17px;transition:transform .3s var(--ease)}
+.link-arrow:hover svg{transform:translateX(4px)}
+.section--light .link-arrow{color:var(--gold-600)}
+
+/* ---------- Header ---------- */
+.header{
+  position:fixed;inset:0 0 auto;z-index:100;height:var(--header-h);
+  display:flex;align-items:center;
+  background:transparent;border-bottom:1px solid transparent;
+  transition:background .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease),height .4s var(--ease);
+}
+.header.is-scrolled,.header.is-solid{
+  background:rgba(7,30,27,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line-dark);box-shadow:0 12px 40px -24px rgba(0,0,0,.9);
+}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%}
+.brand{display:flex;align-items:center}
+.brand img{height:44px;width:auto}
+.nav{display:flex;align-items:center;gap:6px}
+.nav a{
+  position:relative;padding:9px 14px;border-radius:999px;font-size:.92rem;font-weight:500;
+  color:rgba(243,239,235,.82);transition:color .25s var(--ease),background .25s var(--ease);
+}
+.nav a:hover,.nav a.is-active{color:var(--cream);background:rgba(243,239,235,.07)}
+.header__actions{display:flex;align-items:center;gap:12px}
+.header__actions .btn{padding:11px 20px;font-size:.86rem}
+
+/* dropdown */
+.nav__item{position:relative}
+.nav__toggle{display:inline-flex;align-items:center;gap:7px;background:none;border:0;cursor:pointer;
+  padding:9px 14px;border-radius:999px;font-size:.92rem;font-weight:500;color:rgba(243,239,235,.82)}
+.nav__toggle svg{width:13px;height:13px;transition:transform .3s var(--ease)}
+.nav__item:hover .nav__toggle{color:var(--cream);background:rgba(243,239,235,.07)}
+.nav__item:hover .nav__toggle svg{transform:rotate(180deg)}
+.dropdown{
+  position:absolute;top:calc(100% + 12px);left:50%;transform:translate(-50%,10px);
+  min-width:290px;padding:10px;border-radius:16px;
+  background:rgba(8,35,31,.98);backdrop-filter:blur(16px);
+  border:1px solid var(--line-dark);box-shadow:var(--shadow);
+  opacity:0;visibility:hidden;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s;
+}
+.nav__item:hover .dropdown,.nav__item:focus-within .dropdown{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.dropdown a{display:block;padding:11px 14px;border-radius:11px;background:none}
+.dropdown a strong{display:block;font-family:var(--font-display);font-size:.92rem;font-weight:600;color:var(--cream)}
+.dropdown a span{display:block;font-size:.8rem;color:var(--on-dark-muted);line-height:1.5}
+.dropdown a:hover{background:rgba(201,164,106,.10)}
+
+/* menu mobile */
+.burger{display:none;width:46px;height:46px;border:1px solid rgba(243,239,235,.22);border-radius:12px;
+  background:none;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:20px;height:1.6px;background:var(--cream);border-radius:2px;transition:transform .3s var(--ease),opacity .3s var(--ease)}
+.burger.is-open span:nth-child(1){transform:translateY(6.6px) rotate(45deg)}
+.burger.is-open span:nth-child(2){opacity:0}
+.burger.is-open span:nth-child(3){transform:translateY(-6.6px) rotate(-45deg)}
+.mobile-menu{
+  position:fixed;inset:var(--header-h) 0 0;z-index:99;background:var(--green-950);
+  padding:28px 24px 40px;overflow-y:auto;
+  transform:translateY(-12px);opacity:0;visibility:hidden;transition:opacity .32s var(--ease),transform .32s var(--ease),visibility .32s;
+}
+.mobile-menu.is-open{opacity:1;visibility:visible;transform:none}
+.mobile-menu a{display:block;padding:15px 4px;font-family:var(--font-display);font-size:1.14rem;font-weight:600;
+  border-bottom:1px solid rgba(243,239,235,.09)}
+.mobile-menu .sub a{font-size:.95rem;font-weight:500;color:var(--on-dark-muted);padding-left:18px}
+.mobile-menu .btn{width:100%;margin-top:26px}
+body.no-scroll{overflow:hidden}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:min(100svh,880px);display:flex;align-items:center;
+  padding:calc(var(--header-h) + 70px) 0 90px;overflow:hidden;isolation:isolate}
+.hero__bg{position:absolute;inset:0;z-index:-3;background:
+  radial-gradient(120% 90% at 78% 8%, #3A2A18 0%, rgba(58,42,24,0) 55%),
+  radial-gradient(90% 70% at 88% 22%, rgba(201,164,106,.30) 0%, rgba(201,164,106,0) 60%),
+  linear-gradient(180deg,#0A2A24 0%,#08211D 45%,#061A17 100%)}
+.hero__ridges{position:absolute;inset:auto 0 0;z-index:-2;width:100%;height:min(62%,560px);opacity:.95}
+.hero__glow{position:absolute;top:-12%;right:-6%;width:min(720px,72vw);aspect-ratio:1;z-index:-2;
+  background:radial-gradient(circle,rgba(220,196,154,.22) 0%,rgba(220,196,154,0) 65%);filter:blur(6px)}
+.hero__grain{position:absolute;inset:0;z-index:-1;opacity:.35;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.30'/%3E%3C/svg%3E")}
+.hero__inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,70px);align-items:center;width:100%}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.15rem);margin-bottom:.42em;letter-spacing:-.035em}
+.hero h1 em{font-style:normal;display:block;
+  background:linear-gradient(100deg,var(--gold-300),var(--gold-500) 55%,var(--gold-300));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{font-size:clamp(1.05rem,1.5vw,1.22rem);max-width:54ch}
+.hero__tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.hero__tags span{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  font-family:var(--font-display);color:var(--gold-300);
+  padding:8px 15px;border:1px solid rgba(201,164,106,.32);border-radius:999px;background:rgba(201,164,106,.06)}
+.hero__figure{position:relative;justify-self:end;width:min(340px,100%)}
+.hero__figure img{border-radius:var(--radius-lg);border:1px solid rgba(201,164,106,.35);
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.85)}
+.hero__figure::after{content:"";position:absolute;inset:14px -14px -14px 14px;border-radius:var(--radius-lg);
+  border:1px solid rgba(201,164,106,.22);z-index:-1}
+.hero__badge{position:absolute;left:-26px;bottom:34px;display:flex;align-items:center;gap:12px;
+  padding:13px 20px 13px 13px;border-radius:999px;background:rgba(6,25,22,.92);
+  border:1px solid var(--line-dark);backdrop-filter:blur(10px);box-shadow:var(--shadow)}
+.hero__badge img{width:38px;height:auto}
+.hero__badge b{display:block;font-family:var(--font-display);font-size:.82rem;color:var(--cream)}
+.hero__badge span{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-400)}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(243,239,235,.45)}
+.scroll-hint i{display:block;width:1px;height:38px;background:linear-gradient(180deg,var(--gold-400),transparent);animation:drop 2.4s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* hero interno (páginas) */
+.page-hero{position:relative;padding:calc(var(--header-h) + 84px) 0 clamp(60px,7vw,96px);overflow:hidden;isolation:isolate;
+  background:linear-gradient(180deg,#0A2A24,#071E1B 70%)}
+.page-hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(80% 70% at 85% 10%,rgba(201,164,106,.20),transparent 60%)}
+.page-hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem);max-width:18ch}
+.page-hero .lead{max-width:60ch}
+.breadcrumb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.8rem;color:var(--on-dark-muted);margin-bottom:22px}
+.breadcrumb a:hover{color:var(--gold-400)}
+.breadcrumb span{opacity:.5}
+
+/* ---------- Faixa de pilares ---------- */
+.pillars{background:var(--green-950);border-block:1px solid var(--line-dark)}
+.pillars ul{display:grid;grid-template-columns:repeat(4,1fr)}
+.pillars li{padding:34px 26px;text-align:center;border-left:1px solid var(--line-dark)}
+.pillars li:first-child{border-left:0}
+.pillars svg{width:30px;height:30px;margin:0 auto 14px;stroke:var(--gold-400);fill:none;stroke-width:1.4}
+.pillars b{display:block;font-family:var(--font-display);font-size:.76rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cream)}
+.pillars small{display:block;margin-top:6px;font-size:.82rem;color:var(--on-dark-muted)}
+
+/* ---------- Cards ---------- */
+.card{
+  position:relative;padding:clamp(24px,2.6vw,34px);border-radius:var(--radius);
+  background:rgba(243,239,235,.04);border:1px solid rgba(243,239,235,.10);
+  transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease);
+  height:100%;
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(201,164,106,.42);background:rgba(201,164,106,.07)}
+.card h3{font-size:1.12rem;margin-bottom:.5em}
+.card p{font-size:.94rem;color:var(--on-dark-muted);margin-bottom:0}
+.card__icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:20px;
+  background:linear-gradient(140deg,rgba(201,164,106,.24),rgba(201,164,106,.05));border:1px solid rgba(201,164,106,.28)}
+.card__icon svg{width:23px;height:23px;stroke:var(--gold-400);fill:none;stroke-width:1.5}
+
+.card--light{background:#fff;border-color:rgba(14,26,23,.08);box-shadow:var(--shadow-sm)}
+.card--light:hover{background:#fff;border-color:rgba(185,141,83,.45);box-shadow:0 20px 44px -22px rgba(14,26,23,.35)}
+.card--light p{color:var(--on-light-muted)}
+.card--light .card__icon{background:linear-gradient(140deg,rgba(185,141,83,.18),rgba(185,141,83,.04));border-color:rgba(185,141,83,.26)}
+.card--light .card__icon svg{stroke:var(--gold-600)}
+
+.card--link{display:flex;flex-direction:column}
+.card--link .link-arrow{margin-top:auto;padding-top:22px}
+.card--num::before{content:attr(data-num);position:absolute;top:22px;right:26px;
+  font-family:var(--font-display);font-size:2.6rem;font-weight:700;color:rgba(201,164,106,.16);line-height:1}
+.card--light.card--num::before{color:rgba(185,141,83,.20)}
+
+/* valores */
+.value{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line-light)}
+.value__ic{width:42px;height:42px;flex:none;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(140deg,rgba(185,141,83,.20),rgba(185,141,83,.05));border:1px solid rgba(185,141,83,.24)}
+.value__ic svg{width:21px;height:21px;stroke:var(--gold-600);fill:none;stroke-width:1.5}
+.value h3{font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.45em;color:var(--ink)}
+.value p{font-size:.94rem;margin:0;color:var(--on-light-muted)}
+
+/* ---------- Citação / destaque ---------- */
+.quote{position:relative;max-width:900px;margin-inline:auto;text-align:center;padding:clamp(30px,4vw,20px) 0}
+.quote__statement{font-family:var(--font-display);font-size:clamp(1.5rem,3.1vw,2.35rem);font-weight:600;
+  line-height:1.32;letter-spacing:-.025em;color:var(--cream);margin-bottom:0}
+.quote .mark{width:54px;margin:0 auto 26px;opacity:.9}
+.rule{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-500),transparent);margin:26px auto}
+
+/* ---------- Processo ---------- */
+.process{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;counter-reset:step}
+.process li{position:relative;padding:28px 20px;border-radius:var(--radius-sm);text-align:center;
+  background:rgba(243,239,235,.04);border:1px solid rgba(243,239,235,.10);transition:.4s var(--ease)}
+.process li:hover{border-color:rgba(201,164,106,.45);background:rgba(201,164,106,.08);transform:translateY(-4px)}
+.process li::after{content:"";position:absolute;top:50%;right:-11px;width:10px;height:1px;background:rgba(201,164,106,.5)}
+.process li:last-child::after{display:none}
+.process b{display:block;font-family:var(--font-display);font-size:.98rem;color:var(--cream);margin-top:10px}
+.process i{font-style:normal;font-family:var(--font-display);font-size:.72rem;letter-spacing:.2em;color:var(--gold-400)}
+
+/* ---------- Lista de checagem ---------- */
+.checks li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;font-size:.97rem;color:var(--on-dark-muted)}
+.checks svg{width:19px;height:19px;flex:none;margin-top:4px;stroke:var(--gold-400);fill:none;stroke-width:1.7}
+.section--light .checks li{color:var(--on-light-muted)}
+.section--light .checks svg{stroke:var(--gold-600)}
+
+/* ---------- Figuras ---------- */
+.figure{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(201,164,106,.28);
+  box-shadow:0 36px 70px -34px rgba(0,0,0,.8)}
+.figure img{width:100%;height:100%;object-fit:cover}
+.figure--tall{aspect-ratio:3/4}
+.figure--wide{aspect-ratio:16/10}
+.figure__cap{position:absolute;left:0;right:0;bottom:0;padding:26px 24px 22px;
+  background:linear-gradient(180deg,transparent,rgba(4,18,15,.88));font-size:.86rem;color:var(--cream)}
+
+/* ---------- CTA ---------- */
+.cta{position:relative;overflow:hidden;isolation:isolate;
+  background:linear-gradient(135deg,var(--green-800),var(--green-950))}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(70% 90% at 15% 20%,rgba(201,164,106,.22),transparent 60%)}
+
+/* ---------- Formulário ---------- */
+.form{display:grid;gap:16px}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field label{display:block;font-family:var(--font-display);font-size:.76rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold-400);margin-bottom:8px}
+.field input,.field textarea,.field select{
+  width:100%;padding:14px 16px;border-radius:12px;background:rgba(243,239,235,.05);
+  border:1px solid rgba(243,239,235,.16);color:var(--cream);font-size:.96rem;
+  transition:border-color .25s var(--ease),background .25s var(--ease);
+}
+.field textarea{min-height:132px;resize:vertical}
+.field select option{background:var(--green-800);color:var(--cream)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(243,239,235,.38)}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold-400);background:rgba(201,164,106,.08)}
+.form__note{font-size:.8rem;color:var(--on-dark-muted);margin:0}
+.form__status{display:none;padding:14px 16px;border-radius:12px;font-size:.92rem}
+.form__status.is-ok{display:block;background:rgba(201,164,106,.14);border:1px solid rgba(201,164,106,.4);color:var(--gold-300)}
+.form__status.is-err{display:block;background:rgba(214,110,90,.12);border:1px solid rgba(214,110,90,.4);color:#F0BCB0}
+
+.contact-info{display:grid;gap:22px}
+.contact-info .item{display:flex;gap:14px;align-items:flex-start}
+.contact-info svg{width:22px;height:22px;flex:none;margin-top:3px;stroke:var(--gold-400);fill:none;stroke-width:1.5}
+.contact-info b{display:block;font-family:var(--font-display);font-size:.95rem;color:var(--cream)}
+.contact-info span{font-size:.92rem;color:var(--on-dark-muted)}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--green-950);border-top:1px solid var(--line-dark);padding:clamp(56px,6vw,80px) 0 30px}
+.footer__grid{display:grid;grid-template-columns:1.4fr .8fr .8fr 1fr;gap:clamp(26px,4vw,54px)}
+.footer__brand img{height:52px;margin-bottom:20px}
+.footer__brand p{font-size:.92rem;color:var(--on-dark-muted);max-width:34ch}
+.footer h4{font-family:var(--font-display);font-size:.76rem;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold-400);margin-bottom:18px}
+.footer li{margin-bottom:11px}
+.footer li a{font-size:.92rem;color:var(--on-dark-muted);transition:color .25s var(--ease)}
+.footer li a:hover{color:var(--gold-300)}
+.footer__bottom{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;
+  margin-top:clamp(40px,5vw,64px);padding-top:26px;border-top:1px solid rgba(243,239,235,.09);
+  font-size:.82rem;color:rgba(243,239,235,.55)}
+.footer__tag{font-family:var(--font-display);letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;color:var(--gold-400)}
+
+/* ---------- Animação de entrada ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.09s}
+.reveal[data-delay="2"]{transition-delay:.18s}
+.reveal[data-delay="3"]{transition-delay:.27s}
+.reveal[data-delay="4"]{transition-delay:.36s}
+.reveal[data-delay="5"]{transition-delay:.45s}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:1080px){
+  .nav{display:none}
+  .burger{display:flex}
+  .header__actions .btn--gold{display:none}
+  .hero__inner{grid-template-columns:1fr;gap:44px}
+  .hero__figure{justify-self:start;width:min(300px,80%)}
+  .hero__badge{left:auto;right:-14px}
+  .footer__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .split{grid-template-columns:1fr;gap:38px}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(2,1fr)}
+  .pillars ul{grid-template-columns:repeat(2,1fr)}
+  .pillars li:nth-child(3){border-left:0}
+  .pillars li:nth-child(n+3){border-top:1px solid var(--line-dark)}
+  .process{grid-template-columns:repeat(2,1fr)}
+  .process li::after{display:none}
+}
+@media (max-width:640px){
+  :root{--header-h:70px}
+  .container{padding-inline:20px}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .form .row{grid-template-columns:1fr}
+  .process{grid-template-columns:1fr}
+  .footer__grid{grid-template-columns:1fr}
+  .hero__badge{display:none}
+  .btn{width:100%}
+  .btn-row{flex-direction:column}
+  .scroll-hint{display:none}
+}
+
+
+/* ---------- Overrides de escala tipográfica (vencem regras contextuais) ---------- */
+h1.h-xl,h2.h-xl,h3.h-xl{font-size:clamp(2.4rem,5.4vw,4rem)}
+h1.h-lg,h2.h-lg,h3.h-lg{font-size:clamp(2rem,3.6vw,2.9rem)}
+h1.h-md,h2.h-md,h3.h-md{font-size:clamp(1.4rem,2.2vw,1.8rem);line-height:1.24}
+h1.h-sm,h2.h-sm,h3.h-sm{font-size:clamp(1.12rem,1.6vw,1.3rem)}
+.card h3.h-md{margin-bottom:.55em}
+
+/* Cartão de destaque das páginas de solução */
+.solution-card{position:relative;overflow:hidden;text-align:center;max-width:340px;height:auto;align-self:center;
+  background:linear-gradient(160deg,rgba(201,164,106,.16),rgba(201,164,106,.03));
+  border-color:rgba(201,164,106,.34)}
+.solution-card::before{content:"";position:absolute;inset:-40% -30% auto auto;width:220px;height:220px;
+  background:radial-gradient(circle,rgba(201,164,106,.28),transparent 65%)}
+.solution-card__mark{width:52px;margin:0 auto 18px;opacity:.95}
+.solution-card .card__icon{margin-inline:auto;width:62px;height:62px;border-radius:18px}
+.solution-card .card__icon svg{width:29px;height:29px}
+.solution-card small{display:block;margin-top:10px;font-family:var(--font-display);font-size:.7rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold-400)}
+
+.pv-page[hidden]{display:none !important}
+.pv-badge{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:300;
+  display:flex;align-items:center;gap:10px;
+  background:rgba(4,18,15,.94);border:1px solid rgba(201,164,106,.42);color:#DCC49A;
+  padding:9px 16px;border-radius:999px;font:500 12px/1.3 var(--font-body);letter-spacing:.03em;
+  box-shadow:0 14px 34px -16px rgba(0,0,0,.9)}
+.pv-badge b{color:#F3EFEB;font-weight:600}
+@media (max-width:640px){.pv-badge{font-size:11px;padding:8px 13px;bottom:10px}}
+
+
+</style>
+</head>
+<body>
+<div class="pv-page" id="pv-home" hidden>
+
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container header__inner">
+    <a class="brand" href="#/home" aria-label="Seoriente Soluções — página inicial">
+      <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+    </a>
+
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#quem-somos">Quem somos</a>
+      <a href="#o-que-fazemos">O que fazemos</a>
+      <div class="nav__item">
+        <button class="nav__toggle" type="button" aria-haspopup="true">Soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown" role="menu">
+          <a href="#/orizon-broker"><strong>Orizon Broker</strong><span>Tecnologia para corretagem, operações e logística</span></a>
+          <a href="#/daroca"><strong>Daroça</strong><span>Soluções digitais para gestão rural</span></a>
+          <a href="#/seoriente-ia"><strong>Seoriente IA</strong><span>Inteligência artificial aplicada a negócios</span></a>
+          <a href="#/seoriente-bi"><strong>Seoriente BI</strong><span>Dados transformados em informação</span></a>
+          <a href="#/seoriente-automacao"><strong>Seoriente Automação</strong><span>Processos mais simples e eficientes</span></a>
+        </div>
+      </div>
+      <a href="#forma-de-pensar">Como pensamos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="header__actions">
+      <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#quem-somos">Quem somos</a>
+  <a href="#proposito">Nosso propósito</a>
+  <a href="#o-que-fazemos">O que fazemos</a>
+  <a href="#solucoes">Soluções</a>
+  <div class="sub">
+    <a href="#/orizon-broker">Orizon Broker</a>
+    <a href="#/daroca">Daroça</a>
+    <a href="#/seoriente-ia">Seoriente IA</a>
+    <a href="#/seoriente-bi">Seoriente BI</a>
+    <a href="#/seoriente-automacao">Seoriente Automação</a>
+  </div>
+  <a href="#forma-de-pensar">Como pensamos</a>
+  <a href="#contato">Contato</a>
+  <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+</div>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__glow"></div>
+  <svg class="hero__ridges" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="r1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#144136"/><stop offset="1" stop-color="#0B2721"/></linearGradient>
+      <linearGradient id="r2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E312A"/><stop offset="1" stop-color="#08201C"/></linearGradient>
+      <linearGradient id="r3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#08201C"/><stop offset="1" stop-color="#04120F"/></linearGradient>
+    </defs>
+    <path fill="url(#r1)" opacity=".55" d="M0 250 C 120 214, 210 206, 320 232 C 430 258, 520 196, 640 210 C 760 224, 840 268, 960 244 C 1080 220, 1180 232, 1290 254 C 1360 268, 1410 262, 1440 250 L1440 420 L0 420 Z"/>
+    <path fill="url(#r2)" opacity=".75" d="M0 300 C 140 274, 250 286, 380 300 C 510 314, 610 268, 740 280 C 870 292, 960 322, 1090 306 C 1220 290, 1340 300, 1440 312 L1440 420 L0 420 Z"/>
+    <path fill="url(#r3)" d="M0 350 C 160 330, 280 344, 420 356 C 560 368, 680 336, 820 344 C 960 352, 1080 372, 1220 362 C 1330 354, 1400 352, 1440 348 L1440 420 L0 420 Z"/>
+  </svg>
+  <div class="hero__grain"></div>
+
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow reveal">Tecnologia · Inteligência · Estratégia · Resultados</p>
+      <h1 class="reveal" data-delay="1">Toda boa decisão começa com <em>a direção certa.</em></h1>
+      <p class="lead reveal" data-delay="2">A Seoriente Soluções nasceu para transformar desafios em caminhos mais claros. Unimos tecnologia, inteligência, estratégia e conhecimento para criar soluções que ajudam empresas e pessoas a decidir melhor, simplificar processos e encontrar novas possibilidades de crescimento.</p>
+      <div class="btn-row reveal" data-delay="3">
+        <a class="btn btn--gold" href="#solucoes">Conheça nossas soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#contato">Falar com a gente</a>
+      </div>
+      <div class="hero__tags reveal" data-delay="4">
+        <span>Soluções digitais</span><span>Dados</span><span>Automação</span><span>Inteligência artificial</span><span>Gestão</span>
+      </div>
+    </div>
+
+    <figure class="hero__figure reveal" data-delay="3">
+      <img src="images/horizonte.jpg" alt="Vista de um vale ao amanhecer, com uma rosa dos ventos desenhada sobre a rocha" width="254" height="530" loading="eager">
+      <div class="hero__badge">
+        <img src="images/symbol.png" alt="" aria-hidden="true">
+        <div>
+          <b>Seoriente</b>
+          <span>Novos horizontes</span>
+        </div>
+      </div>
+    </figure>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true"><span>Role</span><i></i></div>
+</section>
+
+<!-- ================= PILARES ================= -->
+<section class="pillars">
+  <div class="container">
+    <ul>
+      <li class="reveal">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg>
+        <b>Estratégia</b><small>Antes da solução, a direção</small>
+      </li>
+      <li class="reveal" data-delay="1">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></svg>
+        <b>Tecnologia</b><small>Com propósito, não por moda</small>
+      </li>
+      <li class="reveal" data-delay="2">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg>
+        <b>Resultados</b><small>Tecnologia que gera valor</small>
+      </li>
+      <li class="reveal" data-delay="3">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.8"/></svg>
+        <b>Novos horizontes</b><small>Sempre em movimento</small>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= QUEM SOMOS ================= -->
+<section class="section section--light" id="quem-somos">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">Quem somos</p>
+      <h2 class="h-lg reveal" data-delay="1">Uma empresa de soluções inteligentes que conecta tecnologia, dados, gestão e estratégia.</h2>
+      <p class="lead reveal" data-delay="2">Acreditamos que tecnologia não deve existir apenas para automatizar tarefas. Ela deve gerar clareza, facilitar decisões e criar resultados.</p>
+      <p class="reveal" data-delay="2" style="color:var(--on-light-muted)">Por isso, desenvolvemos soluções pensadas para diferentes negócios, setores e necessidades — de sistemas de gestão e plataformas especializadas a inteligência de dados, automação e soluções baseadas em inteligência artificial.</p>
+      <ul class="checks reveal" data-delay="3" style="margin-top:22px">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Entender o desafio</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Encontrar a direção</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Construir a solução</li>
+      </ul>
+    </div>
+    <figure class="figure figure--tall reveal" data-delay="2">
+      <img src="images/logo-vertical-cream.jpg" alt="Marca Seoriente Soluções — bússola com o caminho em forma de S" width="590" height="525" loading="lazy" style="object-fit:contain;background:#F3EFEB">
+    </figure>
+  </div>
+</section>
+
+<!-- ================= PROPÓSITO ================= -->
+<section class="section section--deep" id="proposito">
+  <div class="container">
+    <div class="quote reveal">
+      <img class="mark" src="images/symbol.png" alt="" aria-hidden="true">
+      <p class="eyebrow" style="justify-content:center">Nosso propósito</p>
+      <p class="quote__statement">Transformar complexidade em direção.</p>
+      <div class="rule"></div>
+      <p class="lead center" style="font-family:var(--font-body);font-weight:400">Vivemos em um mundo onde empresas geram cada vez mais informações, mas nem sempre conseguem transformá-las em decisões. A Seoriente existe para preencher essa lacuna: criamos tecnologia que organiza, conecta e transforma informações em caminhos mais claros.</p>
+      <p class="gold" style="font-family:var(--font-display);font-weight:600;margin:0">Porque ter dados é importante. Saber para onde eles apontam é o que faz a diferença.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSÃO E VISÃO ================= -->
+<section class="section section--dark" id="missao-visao">
+  <div class="container">
+    <div class="grid grid-2">
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5.2-5.2 2 2-5.2 5.2-2Z"/></svg></div>
+        <p class="eyebrow" style="margin-bottom:10px">Nossa missão</p>
+        <h3 class="h-md">Criar soluções inteligentes que simplifiquem processos, ampliem possibilidades e ajudem nossos clientes a tomar decisões melhores.</h3>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.8"/></svg></div>
+        <p class="eyebrow" style="margin-bottom:10px">Nossa visão</p>
+        <h3 class="h-md">Ser referência em soluções inteligentes, reconhecida por transformar tecnologia em direção, eficiência e crescimento.</h3>
+        <p style="margin-top:14px">Queremos estar ao lado de empresas que querem evoluir — ajudando-as não apenas a acompanhar as mudanças, mas a se antecipar a elas.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALORES ================= -->
+<section class="section section--light" id="valores">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow reveal">Nossos valores</p>
+      <h2 class="h-lg reveal" data-delay="1">O que orienta cada decisão que tomamos</h2>
+    </div>
+    <div class="grid grid-2" style="gap:0 clamp(30px,5vw,70px)">
+      <div class="value reveal">
+        <div class="value__ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5.2-5.2 2 2-5.2 5.2-2Z"/></svg></div>
+        <div><h3>Direção</h3><p>Antes de criar uma solução, entendemos onde queremos chegar.</p></div>
+      </div>
+      <div class="value reveal" data-delay="1">
+        <div class="value__ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5.9 1.1 1 1.7h5.2c.1-.6.4-1.2 1-1.7A6 6 0 0 0 12 3Z"/></svg></div>
+        <div><h3>Inteligência</h3><p>Transformamos informação em conhecimento e conhecimento em decisões melhores.</p></div>
+      </div>
+      <div class="value reveal">
+        <div class="value__ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14.5c3-8 8-11 14-11 0 6-3 11-11 14l-3-3Z"/><path d="m8.5 15.5-4 4M6 18l-1.5 3.5L8 20"/></svg></div>
+        <div><h3>Inovação</h3><p>Questionamos o jeito tradicional de fazer as coisas e buscamos caminhos melhores.</p></div>
+      </div>
+      <div class="value reveal" data-delay="1">
+        <div class="value__ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.5 6 9.5a2.1 2.1 0 0 1 0-3l2-2 3 2.5h3l4 4v4l-3 3-2.5-2.5"/><path d="m11 14 2 2M8.5 16.5l2 2"/></svg></div>
+        <div><h3>Parceria</h3><p>Não queremos ser apenas fornecedores. Queremos construir soluções junto com nossos clientes.</p></div>
+      </div>
+      <div class="value reveal">
+        <div class="value__ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div>
+        <div><h3>Resultado</h3><p>Tecnologia só faz sentido quando gera valor real.</p></div>
+      </div>
+      <div class="value reveal" data-delay="1">
+        <div class="value__ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></div>
+        <div><h3>Clareza</h3><p>Soluções complexas não precisam ser difíceis de entender ou utilizar.</p></div>
+      </div>
+      <div class="value reveal">
+        <div class="value__ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-8"/><path d="M12 13c0-3.3 2.7-6 6-6 0 3.3-2.7 6-6 6Z"/><path d="M12 16c-3.3 0-6-2.2-6-5 3.3 0 6 2.2 6 5Z"/></svg></div>
+        <div><h3>Evolução</h3><p>Aprendemos, testamos, melhoramos e seguimos sempre em movimento.</p></div>
+      </div>
+      <div class="value reveal" data-delay="1">
+        <div class="value__ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 1 0-7.1 7.1L12 21l8.4-8.3a5 5 0 0 0 0-7.1Z"/></svg></div>
+        <div><h3>Pessoas</h3><p>Por trás de cada negócio, sistema e decisão existem pessoas. Tecnologia deve servir às pessoas, e não o contrário.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= O QUE FAZEMOS ================= -->
+<section class="section section--dark" id="o-que-fazemos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">O que fazemos</p>
+      <h2 class="h-lg reveal" data-delay="1">Tecnologia aplicada onde ela realmente muda o jogo</h2>
+      <p class="lead reveal" data-delay="2">Da ideia à operação: desenhamos, construímos e sustentamos soluções que se encaixam no jeito de trabalhar de cada negócio.</p>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M8 9l-2 2 2 2M14 9l2 2-2 2"/></svg></div>
+        <h3>Soluções digitais</h3>
+        <p>Desenvolvemos sistemas e plataformas pensados para necessidades específicas de cada negócio.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg></div>
+        <h3>Inteligência de dados</h3>
+        <p>Transformamos dados dispersos em informações organizadas para facilitar análises e decisões.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6a3 3 0 0 1 3 3v4a3 3 0 0 0 3 3h4"/><path d="m17 4 3 3-3 3M17 14l3 3-3 3"/><circle cx="4" cy="7" r="1.6"/></svg></div>
+        <h3>Automação</h3>
+        <p>Eliminamos tarefas repetitivas e conectamos processos para tornar as operações mais eficientes.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9.5 10.5h.01M14.5 10.5h.01M9.5 14.5h5"/><path d="M12 3v3M3 12h3M18 12h3M12 18v3"/></svg></div>
+        <h3>Inteligência artificial</h3>
+        <p>Aplicamos IA de forma prática para criar novos recursos, automatizar processos e ampliar a capacidade das empresas.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg></div>
+        <h3>Gestão</h3>
+        <p>Criamos ferramentas que ajudam empresas a organizar operações, acompanhar indicadores e enxergar melhor o próprio negócio.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 7.5l2.6 1.5M17.2 15l2.6 1.5M4.2 16.5l2.6-1.5M17.2 9l2.6-1.5"/><circle cx="12" cy="12" r="3.4"/></svg></div>
+        <h3>Soluções personalizadas</h3>
+        <p>Cada empresa possui desafios diferentes. Por isso, também desenvolvemos soluções sob medida.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORMA DE PENSAR ================= -->
+<section class="section section--darker" id="forma-de-pensar">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow reveal">Nossa forma de pensar</p>
+      <h2 class="h-lg reveal" data-delay="1">Antes da solução, vem a direção.</h2>
+      <p class="lead reveal" data-delay="2">Não acreditamos em tecnologia pela tecnologia. Acreditamos em tecnologia com propósito. Nosso processo começa entendendo o problema; depois analisamos possibilidades, identificamos oportunidades e construímos a solução mais adequada para aquele cenário.</p>
+    </div>
+    <ol class="process">
+      <li class="reveal"><i>01</i><b>Problema</b></li>
+      <li class="reveal" data-delay="1"><i>02</i><b>Análise</b></li>
+      <li class="reveal" data-delay="2"><i>03</i><b>Direção</b></li>
+      <li class="reveal" data-delay="3"><i>04</i><b>Solução</b></li>
+      <li class="reveal" data-delay="4"><i>05</i><b>Resultado</b></li>
+    </ol>
+    <p class="center muted reveal" style="margin-top:34px">É assim que transformamos desafios em novos caminhos.</p>
+  </div>
+</section>
+
+<!-- ================= SOLUÇÕES ================= -->
+<section class="section section--light" id="solucoes">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">Nossas soluções</p>
+      <h2 class="h-lg reveal" data-delay="1">Um ecossistema de soluções que conversam entre si</h2>
+      <p class="lead reveal" data-delay="2">A Seoriente pode desenvolver e reunir diferentes soluções dentro de um mesmo ecossistema — cada uma pensada para um desafio, todas com a mesma lógica de clareza e direção.</p>
+    </div>
+    <div class="grid grid-3">
+      <a class="card card--light card--link reveal" href="#/orizon-broker">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l2-5h9l2 5h3"/><path d="M6 12V6h9l3 6"/><circle cx="7.5" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></div>
+        <h3>Orizon Broker</h3>
+        <p>Tecnologia para corretagem, operações e logística.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--light card--link reveal" data-delay="1" href="#/daroca">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3.2-7 7-7 0 4-3.2 7-7 7Z"/><path d="M12 17c-3.9 0-7-2.6-7-5.8 3.9 0 7 2.6 7 5.8Z"/></svg></div>
+        <h3>Daroça</h3>
+        <p>Soluções digitais para gestão rural.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--light card--link reveal" data-delay="2" href="#/seoriente-ia">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9.5 10.5h.01M14.5 10.5h.01M9.5 14.5h5"/><path d="M12 3v3M3 12h3M18 12h3M12 18v3"/></svg></div>
+        <h3>Seoriente IA</h3>
+        <p>Inteligência artificial aplicada a negócios e processos.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--light card--link reveal" href="#/seoriente-bi">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+        <h3>Seoriente BI</h3>
+        <p>Dados transformados em informação para decisões mais inteligentes.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--light card--link reveal" data-delay="1" href="#/seoriente-automacao">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6a3 3 0 0 1 3 3v4a3 3 0 0 0 3 3h4"/><path d="m17 4 3 3-3 3M17 14l3 3-3 3"/><circle cx="4" cy="7" r="1.6"/></svg></div>
+        <h3>Seoriente Automação</h3>
+        <p>Processos mais simples, rápidos e eficientes por meio da automação.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <div class="card card--light reveal" data-delay="2" style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(140deg,rgba(185,141,83,.14),rgba(185,141,83,.03));border-style:dashed">
+        <h3 class="gold">Novas soluções estão sempre no horizonte.</h3>
+        <p>Se o seu desafio ainda não tem nome, ele pode ser o próximo projeto do nosso ecossistema.</p>
+        <a class="link-arrow" href="#contato" style="margin-top:16px">Conversar sobre um projeto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POR QUE SEORIENTE ================= -->
+<section class="section section--dark" id="por-que">
+  <div class="container split">
+    <figure class="figure figure--tall reveal" style="max-width:400px">
+      <img src="images/horizonte.jpg" alt="Amanhecer sobre um vale, com o rio serpenteando entre as montanhas" width="254" height="530" loading="lazy">
+      <figcaption class="figure__cap">Existem dados. Existem possibilidades. Existem caminhos.</figcaption>
+    </figure>
+    <div>
+      <p class="eyebrow reveal">Por que Seoriente?</p>
+      <h2 class="h-lg reveal" data-delay="1">Porque nenhuma empresa precisa caminhar no escuro.</h2>
+      <p class="lead reveal" data-delay="2">O nosso papel é ajudar você a enxergar os dados, as possibilidades e os caminhos que já existem no seu negócio — e escolher por onde seguir.</p>
+      <p class="gold reveal" data-delay="2" style="font-family:var(--font-display);font-weight:600;font-size:1.1rem">A direção certa pode transformar completamente o destino de um negócio.</p>
+      <ul class="checks reveal" data-delay="3">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Tecnologia simples quando precisa ser simples.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Inteligência quando precisa ser estratégica.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Inovação quando existe uma oportunidade de fazer melhor.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>E, acima de tudo, soluções que gerem valor.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section class="section cta" id="contato">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">Vamos conversar</p>
+      <h2 class="h-lg reveal" data-delay="1">Conte o seu desafio. A gente ajuda a encontrar a direção.</h2>
+      <p class="lead reveal" data-delay="2">Responda em poucas linhas o que você precisa resolver. Retornamos para entender o cenário e mostrar os caminhos possíveis.</p>
+      <div class="contact-info reveal" data-delay="3" style="margin-top:34px">
+        <div class="item">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg>
+          <div><b>E-mail</b><span>contato@seorientesolucoes.com.br</span></div>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.8"/></svg>
+          <div><b>Onde estamos</b><span>Atendimento em todo o Brasil, de forma remota.</span></div>
+        </div>
+        <div class="item">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div><b>Retorno</b><span>Respondemos em até 1 dia útil.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="form reveal" data-delay="2" data-contact novalidate>
+      <div class="row">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" placeholder="Como podemos te chamar?" required>
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="voce@empresa.com.br" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="empresa">Empresa</label>
+          <input id="empresa" name="empresa" type="text" placeholder="Nome da empresa">
+        </div>
+        <div class="field">
+          <label for="telefone">Telefone</label>
+          <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000">
+        </div>
+      </div>
+      <div class="field">
+        <label for="assunto">Assunto</label>
+        <select id="assunto" name="assunto">
+          <option>Quero conhecer as soluções</option>
+          <option>Preciso de um sistema sob medida</option>
+          <option>Inteligência de dados / BI</option>
+          <option>Automação de processos</option>
+          <option>Inteligência artificial</option>
+          <option>Outro assunto</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco sobre o desafio que você quer resolver." required></textarea>
+      </div>
+      <div class="form__status" role="status" aria-live="polite"></div>
+      <button class="btn btn--gold" type="submit">Enviar mensagem
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="form__note">Ao enviar, você concorda em ser contatado pela Seoriente Soluções sobre este assunto.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+        <p>Mais que soluções. Novos caminhos. Tecnologia para transformar informação em direção.</p>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#quem-somos">Quem somos</a></li>
+          <li><a href="#proposito">Propósito</a></li>
+          <li><a href="#valores">Valores</a></li>
+          <li><a href="#forma-de-pensar">Como pensamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#/orizon-broker">Orizon Broker</a></li>
+          <li><a href="#/daroca">Daroça</a></li>
+          <li><a href="#/seoriente-ia">Seoriente IA</a></li>
+          <li><a href="#/seoriente-bi">Seoriente BI</a></li>
+          <li><a href="#/seoriente-automacao">Seoriente Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a></li>
+          <li><a href="#contato">Formulário de contato</a></li>
+          <li><a href="#/area">Área do Cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Seoriente Soluções. Todos os direitos reservados.</span>
+      <span class="footer__tag">Mais que soluções. Novos caminhos.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+<div class="pv-page" id="pv-solucoes" hidden>
+
+<header class="header is-solid">
+  <div class="container header__inner">
+    <a class="brand" href="#/home" aria-label="Seoriente Soluções — página inicial">
+      <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#/home:quem-somos">Quem somos</a>
+      <a href="#/home:o-que-fazemos">O que fazemos</a>
+      <div class="nav__item">
+        <button class="nav__toggle" type="button" aria-haspopup="true">Soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown" role="menu">
+          <a href="#/orizon-broker"><strong>Orizon Broker</strong><span>Corretagem · Operações · Logística</span></a>
+          <a href="#/daroca"><strong>Daroça</strong><span>Gestão rural · Campo · Produção</span></a>
+          <a href="#/seoriente-ia"><strong>Seoriente IA</strong><span>Inteligência artificial aplicada</span></a>
+          <a href="#/seoriente-bi"><strong>Seoriente BI</strong><span>Dados · Indicadores · Decisão</span></a>
+          <a href="#/seoriente-automacao"><strong>Seoriente Automação</strong><span>Processos · Integrações · Eficiência</span></a>
+        </div>
+      </div>
+      <a href="#/home:forma-de-pensar">Como pensamos</a>
+      <a href="#/home:contato">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#/home:quem-somos">Quem somos</a>
+  <a href="#/home:o-que-fazemos">O que fazemos</a>
+  <a href="#/solucoes">Soluções</a>
+  <div class="sub">
+    <a href="#/orizon-broker">Orizon Broker</a>
+    <a href="#/daroca">Daroça</a>
+    <a href="#/seoriente-ia">Seoriente IA</a>
+    <a href="#/seoriente-bi">Seoriente BI</a>
+    <a href="#/seoriente-automacao">Seoriente Automação</a>
+  </div>
+  <a href="#/home:forma-de-pensar">Como pensamos</a>
+  <a href="#/home:contato">Contato</a>
+  <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+</div>
+<main>
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb reveal" aria-label="Você está aqui">
+      <a href="#/home">Início</a><span>/</span><span class="gold">Soluções</span>
+    </nav>
+    <p class="eyebrow reveal">Nossas soluções</p>
+    <h1 class="reveal" data-delay="1">Um ecossistema de soluções que conversam entre si</h1>
+    <p class="lead reveal" data-delay="2">A Seoriente pode desenvolver e reunir diferentes soluções dentro de um mesmo ecossistema. Cada uma nasce de um desafio real — e todas seguem a mesma lógica: entender, dar direção e construir.</p>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container">
+    <div class="grid grid-3">
+      <a class="card card--light card--link reveal" href="#/orizon-broker">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l2-5h9l2 5h3"/><path d="M6 12V6h9l3 6"/><circle cx="7.5" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></div>
+        <h3>Orizon Broker</h3>
+        <p>Tecnologia para corretagem, operações e logística.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--light card--link reveal" data-delay="1" href="#/daroca">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3.2-7 7-7 0 4-3.2 7-7 7Z"/><path d="M12 17c-3.9 0-7-2.6-7-5.8 3.9 0 7 2.6 7 5.8Z"/></svg></div>
+        <h3>Daroça</h3>
+        <p>Soluções digitais para gestão rural.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--light card--link reveal" data-delay="2" href="#/seoriente-ia">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9.5 10.5h.01M14.5 10.5h.01M9.5 14.5h5"/><path d="M12 3v3M3 12h3M18 12h3M12 18v3"/></svg></div>
+        <h3>Seoriente IA</h3>
+        <p>Inteligência artificial aplicada a negócios e processos.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--light card--link reveal" href="#/seoriente-bi">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+        <h3>Seoriente BI</h3>
+        <p>Dados transformados em informação para decisões mais inteligentes.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--light card--link reveal" data-delay="1" href="#/seoriente-automacao">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6a3 3 0 0 1 3 3v4a3 3 0 0 0 3 3h4"/><path d="m17 4 3 3-3 3M17 14l3 3-3 3"/><circle cx="4" cy="7" r="1.6"/></svg></div>
+        <h3>Seoriente Automação</h3>
+        <p>Processos mais simples, rápidos e eficientes por meio da automação.</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <div class="card card--light reveal" style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(140deg,rgba(185,141,83,.14),rgba(185,141,83,.03));border-style:dashed">
+        <h3 class="gold">Novas soluções estão sempre no horizonte.</h3>
+        <p>Também desenvolvemos soluções sob medida para desafios que ainda não têm nome.</p>
+        <a class="link-arrow" href="#/home:contato" style="margin-top:16px">Conversar sobre um projeto <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="container center">
+    <p class="eyebrow reveal" style="justify-content:center">Vamos conversar</p>
+    <h2 class="h-lg reveal" data-delay="1">Conte o seu desafio. A gente ajuda a encontrar a direção.</h2>
+    <p class="lead reveal" data-delay="2">Cada empresa tem um cenário. Vamos entender o seu antes de falar de solução.</p>
+    <div class="btn-row reveal" data-delay="3">
+      <a class="btn btn--gold" href="#/home:contato">Falar com a gente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#/solucoes">Ver todas as soluções</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+        <p>Mais que soluções. Novos caminhos. Tecnologia para transformar informação em direção.</p>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#/home:quem-somos">Quem somos</a></li>
+          <li><a href="#/home:proposito">Propósito</a></li>
+          <li><a href="#/home:valores">Valores</a></li>
+          <li><a href="#/home:forma-de-pensar">Como pensamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#/orizon-broker">Orizon Broker</a></li>
+          <li><a href="#/daroca">Daroça</a></li>
+          <li><a href="#/seoriente-ia">Seoriente IA</a></li>
+          <li><a href="#/seoriente-bi">Seoriente BI</a></li>
+          <li><a href="#/seoriente-automacao">Seoriente Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a></li>
+          <li><a href="#/home:contato">Formulário de contato</a></li>
+          <li><a href="#/area">Área do Cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Seoriente Soluções. Todos os direitos reservados.</span>
+      <span class="footer__tag">Mais que soluções. Novos caminhos.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+<div class="pv-page" id="pv-orizon-broker" hidden>
+
+<header class="header is-solid">
+  <div class="container header__inner">
+    <a class="brand" href="#/home" aria-label="Seoriente Soluções — página inicial">
+      <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#/home:quem-somos">Quem somos</a>
+      <a href="#/home:o-que-fazemos">O que fazemos</a>
+      <div class="nav__item">
+        <button class="nav__toggle" type="button" aria-haspopup="true">Soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown" role="menu">
+          <a href="#/orizon-broker"><strong>Orizon Broker</strong><span>Corretagem · Operações · Logística</span></a>
+          <a href="#/daroca"><strong>Daroça</strong><span>Gestão rural · Campo · Produção</span></a>
+          <a href="#/seoriente-ia"><strong>Seoriente IA</strong><span>Inteligência artificial aplicada</span></a>
+          <a href="#/seoriente-bi"><strong>Seoriente BI</strong><span>Dados · Indicadores · Decisão</span></a>
+          <a href="#/seoriente-automacao"><strong>Seoriente Automação</strong><span>Processos · Integrações · Eficiência</span></a>
+        </div>
+      </div>
+      <a href="#/home:forma-de-pensar">Como pensamos</a>
+      <a href="#/home:contato">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#/home:quem-somos">Quem somos</a>
+  <a href="#/home:o-que-fazemos">O que fazemos</a>
+  <a href="#/solucoes">Soluções</a>
+  <div class="sub">
+    <a href="#/orizon-broker">Orizon Broker</a>
+    <a href="#/daroca">Daroça</a>
+    <a href="#/seoriente-ia">Seoriente IA</a>
+    <a href="#/seoriente-bi">Seoriente BI</a>
+    <a href="#/seoriente-automacao">Seoriente Automação</a>
+  </div>
+  <a href="#/home:forma-de-pensar">Como pensamos</a>
+  <a href="#/home:contato">Contato</a>
+  <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+</div>
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb reveal" aria-label="Você está aqui">
+      <a href="#/home">Início</a><span>/</span><a href="#/solucoes">Soluções</a><span>/</span><span class="gold">Orizon Broker</span>
+    </nav>
+    <div class="split" style="align-items:center">
+      <div>
+        <p class="eyebrow reveal">Corretagem · Operações · Logística</p>
+        <h1 class="reveal" data-delay="1">Tecnologia para corretagem, operações e logística.</h1>
+        <p class="lead reveal" data-delay="2">O Orizon Broker organiza o dia a dia de quem intermedeia negócios e movimenta cargas: da negociação ao acompanhamento da operação, tudo em um só lugar, com informação confiável e histórico completo.</p>
+        <div class="btn-row reveal" data-delay="3">
+          <a class="btn btn--gold" href="#/home:contato">Quero conhecer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="#recursos">Ver o que faz</a>
+        </div>
+      </div>
+      <div class="reveal" data-delay="2" style="justify-self:center">
+        <div class="card solution-card">
+          <img class="solution-card__mark" src="images/symbol.png" alt="" aria-hidden="true">
+          <div class="card__icon"><svg style="width:30px;height:30px" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l2-5h9l2 5h3"/><path d="M6 12V6h9l3 6"/><circle cx="7.5" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></div>
+          <h3 class="h-md" style="margin-bottom:.2em">Orizon Broker</h3>
+          <small>Ecossistema Seoriente</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">O desafio</p>
+      <h2 class="h-lg reveal" data-delay="1">O desafio de quem opera no meio do caminho</h2>
+      <ul class="checks reveal" data-delay="2" style="margin-top:10px">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Negociações espalhadas entre planilhas, mensagens e e-mails.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Operações acompanhadas de memória, sem histórico organizado.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Dificuldade de enxergar margem, comissão e desempenho por período.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Retrabalho para reunir documentos e informações de cada operação.</li>
+      </ul>
+    </div>
+    <div class="card card--light reveal" data-delay="2">
+      <p class="eyebrow" style="margin-bottom:12px">A nossa resposta</p>
+      <h3 class="h-md">Uma plataforma para conduzir cada operação do início ao fim</h3>
+      <p>Reunimos cadastro, negociação, acompanhamento e fechamento em um fluxo único. Cada operação passa a ter dono, etapa, prazo e histórico — e a informação deixa de depender de quem estava na conversa.</p>
+      <p class="gold" style="font-family:var(--font-display);font-weight:600;margin-bottom:0">Problema → Análise → Direção → Solução → Resultado</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" id="recursos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">O que o Orizon Broker faz</p>
+      <h2 class="h-lg reveal" data-delay="1">Recursos pensados para a rotina real</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+        <h3>Cadastro completo</h3>
+        <p>Clientes, parceiros, veículos, rotas e tabelas organizados e sempre acessíveis.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6a3 3 0 0 1 3 3v4a3 3 0 0 0 3 3h4"/><path d="m17 4 3 3-3 3M17 14l3 3-3 3"/><circle cx="4" cy="7" r="1.6"/></svg></div>
+        <h3>Fluxo de negociação</h3>
+        <p>Cada operação com etapa, responsável e prazo, do primeiro contato ao fechamento.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m9 4-6 2.5v13L9 17l6 2.5 6-2.5v-13L15 6.5Z"/><path d="M9 4v13M15 6.5v13"/></svg></div>
+        <h3>Acompanhamento logístico</h3>
+        <p>Registro de cada movimentação para saber, a qualquer momento, onde a operação está.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+        <h3>Indicadores do negócio</h3>
+        <p>Volume, comissões e desempenho por período, cliente ou rota.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M16 11.2A3 3 0 0 0 16 5.4M18 20c0-2.4-.9-4.2-2.4-5.2"/></svg></div>
+        <h3>Times e permissões</h3>
+        <p>Cada pessoa enxerga o que precisa, com controle de acesso por perfil.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.3 2.9 7.9 7 9 4.1-1.1 7-4.7 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Histórico confiável</h3>
+        <p>Tudo o que aconteceu fica registrado — sem depender da memória de ninguém.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">Para quem é</p>
+      <h2 class="h-lg reveal" data-delay="1">Feito para quem precisa de clareza para decidir</h2>
+      <ul class="checks reveal" data-delay="2">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Corretoras e agentes de negociação</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Transportadoras e operadores logísticos</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Empresas que intermedeiam compra, venda e frete</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Times comerciais que precisam de histórico e previsibilidade</li>
+      </ul>
+    </div>
+    <div class="reveal" data-delay="2">
+      <p class="eyebrow">Como começamos</p>
+      <ol class="grid" style="gap:14px">
+        <li class="card card--light card--num" data-num="01"><h3>Conversa inicial</h3><p>Entendemos o cenário, o processo atual e o que precisa mudar.</p></li>
+        <li class="card card--light card--num" data-num="02"><h3>Direção proposta</h3><p>Apresentamos o caminho, o escopo e o que faz sentido priorizar.</p></li>
+        <li class="card card--light card--num" data-num="03"><h3>Construção e ajuste</h3><p>Entregamos em etapas, com uso real e refinamento a cada ciclo.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section section--darker section--tight">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:34px">
+      <p class="eyebrow reveal" style="justify-content:center">Ecossistema</p>
+      <h2 class="h-md reveal" data-delay="1">Outras soluções Seoriente</h2>
+    </div>
+    <div class="grid grid-3">
+      <a class="card card--link reveal" href="#/daroca">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3.2-7 7-7 0 4-3.2 7-7 7Z"/><path d="M12 17c-3.9 0-7-2.6-7-5.8 3.9 0 7 2.6 7 5.8Z"/></svg></div>
+        <h3>Daroça</h3>
+        <p>Gestão rural · Campo · Produção</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/seoriente-ia">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9.5 10.5h.01M14.5 10.5h.01M9.5 14.5h5"/><path d="M12 3v3M3 12h3M18 12h3M12 18v3"/></svg></div>
+        <h3>Seoriente IA</h3>
+        <p>Inteligência artificial aplicada</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/seoriente-bi">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+        <h3>Seoriente BI</h3>
+        <p>Dados · Indicadores · Decisão</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="container center">
+    <p class="eyebrow reveal" style="justify-content:center">Vamos conversar</p>
+    <h2 class="h-lg reveal" data-delay="1">Conte o seu desafio. A gente ajuda a encontrar a direção.</h2>
+    <p class="lead reveal" data-delay="2">Cada empresa tem um cenário. Vamos entender o seu antes de falar de solução.</p>
+    <div class="btn-row reveal" data-delay="3">
+      <a class="btn btn--gold" href="#/home:contato">Falar com a gente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#/solucoes">Ver todas as soluções</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+        <p>Mais que soluções. Novos caminhos. Tecnologia para transformar informação em direção.</p>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#/home:quem-somos">Quem somos</a></li>
+          <li><a href="#/home:proposito">Propósito</a></li>
+          <li><a href="#/home:valores">Valores</a></li>
+          <li><a href="#/home:forma-de-pensar">Como pensamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#/orizon-broker">Orizon Broker</a></li>
+          <li><a href="#/daroca">Daroça</a></li>
+          <li><a href="#/seoriente-ia">Seoriente IA</a></li>
+          <li><a href="#/seoriente-bi">Seoriente BI</a></li>
+          <li><a href="#/seoriente-automacao">Seoriente Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a></li>
+          <li><a href="#/home:contato">Formulário de contato</a></li>
+          <li><a href="#/area">Área do Cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Seoriente Soluções. Todos os direitos reservados.</span>
+      <span class="footer__tag">Mais que soluções. Novos caminhos.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+<div class="pv-page" id="pv-daroca" hidden>
+
+<header class="header is-solid">
+  <div class="container header__inner">
+    <a class="brand" href="#/home" aria-label="Seoriente Soluções — página inicial">
+      <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#/home:quem-somos">Quem somos</a>
+      <a href="#/home:o-que-fazemos">O que fazemos</a>
+      <div class="nav__item">
+        <button class="nav__toggle" type="button" aria-haspopup="true">Soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown" role="menu">
+          <a href="#/orizon-broker"><strong>Orizon Broker</strong><span>Corretagem · Operações · Logística</span></a>
+          <a href="#/daroca"><strong>Daroça</strong><span>Gestão rural · Campo · Produção</span></a>
+          <a href="#/seoriente-ia"><strong>Seoriente IA</strong><span>Inteligência artificial aplicada</span></a>
+          <a href="#/seoriente-bi"><strong>Seoriente BI</strong><span>Dados · Indicadores · Decisão</span></a>
+          <a href="#/seoriente-automacao"><strong>Seoriente Automação</strong><span>Processos · Integrações · Eficiência</span></a>
+        </div>
+      </div>
+      <a href="#/home:forma-de-pensar">Como pensamos</a>
+      <a href="#/home:contato">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#/home:quem-somos">Quem somos</a>
+  <a href="#/home:o-que-fazemos">O que fazemos</a>
+  <a href="#/solucoes">Soluções</a>
+  <div class="sub">
+    <a href="#/orizon-broker">Orizon Broker</a>
+    <a href="#/daroca">Daroça</a>
+    <a href="#/seoriente-ia">Seoriente IA</a>
+    <a href="#/seoriente-bi">Seoriente BI</a>
+    <a href="#/seoriente-automacao">Seoriente Automação</a>
+  </div>
+  <a href="#/home:forma-de-pensar">Como pensamos</a>
+  <a href="#/home:contato">Contato</a>
+  <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+</div>
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb reveal" aria-label="Você está aqui">
+      <a href="#/home">Início</a><span>/</span><a href="#/solucoes">Soluções</a><span>/</span><span class="gold">Daroça</span>
+    </nav>
+    <div class="split" style="align-items:center">
+      <div>
+        <p class="eyebrow reveal">Gestão rural · Campo · Produção</p>
+        <h1 class="reveal" data-delay="1">Soluções digitais para gestão rural.</h1>
+        <p class="lead reveal" data-delay="2">O Daroça leva organização e clareza para a propriedade rural: áreas, safras, custos, insumos e atividades registrados de forma simples, para que a decisão no campo seja tomada com informação, e não com estimativa.</p>
+        <div class="btn-row reveal" data-delay="3">
+          <a class="btn btn--gold" href="#/home:contato">Quero conhecer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="#recursos">Ver o que faz</a>
+        </div>
+      </div>
+      <div class="reveal" data-delay="2" style="justify-self:center">
+        <div class="card solution-card">
+          <img class="solution-card__mark" src="images/symbol.png" alt="" aria-hidden="true">
+          <div class="card__icon"><svg style="width:30px;height:30px" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3.2-7 7-7 0 4-3.2 7-7 7Z"/><path d="M12 17c-3.9 0-7-2.6-7-5.8 3.9 0 7 2.6 7 5.8Z"/></svg></div>
+          <h3 class="h-md" style="margin-bottom:.2em">Daroça</h3>
+          <small>Ecossistema Seoriente</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">O desafio</p>
+      <h2 class="h-lg reveal" data-delay="1">O campo produz muito dado — e pouca informação</h2>
+      <ul class="checks reveal" data-delay="2" style="margin-top:10px">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Anotações em caderno, planilha e cabeça, cada uma com uma versão da verdade.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Custo por área e por safra difícil de apurar na hora certa.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Aplicações, insumos e atividades sem registro padronizado.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Decisões importantes tomadas sem histórico das safras anteriores.</li>
+      </ul>
+    </div>
+    <div class="card card--light reveal" data-delay="2">
+      <p class="eyebrow" style="margin-bottom:12px">A nossa resposta</p>
+      <h3 class="h-md">Do talhão ao resultado, com registro simples</h3>
+      <p>O Daroça organiza a operação em torno do que já existe na propriedade: áreas, safras e atividades. O registro é feito de forma simples, inclusive pelo celular, e vira informação para acompanhar custo, produtividade e histórico.</p>
+      <p class="gold" style="font-family:var(--font-display);font-weight:600;margin-bottom:0">Problema → Análise → Direção → Solução → Resultado</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" id="recursos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">O que o Daroça faz</p>
+      <h2 class="h-lg reveal" data-delay="1">Recursos pensados para a rotina real</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m9 4-6 2.5v13L9 17l6 2.5 6-2.5v-13L15 6.5Z"/><path d="M9 4v13M15 6.5v13"/></svg></div>
+        <h3>Áreas e talhões</h3>
+        <p>Cada área cadastrada, com histórico de uso e de safras.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3.2-7 7-7 0 4-3.2 7-7 7Z"/><path d="M12 17c-3.9 0-7-2.6-7-5.8 3.9 0 7 2.6 7 5.8Z"/></svg></div>
+        <h3>Safras e culturas</h3>
+        <p>Planejamento e acompanhamento do ciclo produtivo em cada área.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+        <h3>Custos e insumos</h3>
+        <p>Registro de aplicações, compras e custos ligados diretamente à área.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.6h3"/></svg></div>
+        <h3>Registro no campo</h3>
+        <p>Lançamentos simples, feitos onde a operação acontece.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+        <h3>Resultado por safra</h3>
+        <p>Comparação entre períodos para entender o que funcionou.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M16 11.2A3 3 0 0 0 16 5.4M18 20c0-2.4-.9-4.2-2.4-5.2"/></svg></div>
+        <h3>Equipe e atividades</h3>
+        <p>Quem fez, o quê e quando — com responsabilidade clara.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">Para quem é</p>
+      <h2 class="h-lg reveal" data-delay="1">Feito para quem precisa de clareza para decidir</h2>
+      <ul class="checks reveal" data-delay="2">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Produtores rurais que querem sair da planilha</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Fazendas com mais de uma área ou cultura</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Gestores que precisam apurar custo por safra</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Times de campo que registram atividades diariamente</li>
+      </ul>
+    </div>
+    <div class="reveal" data-delay="2">
+      <p class="eyebrow">Como começamos</p>
+      <ol class="grid" style="gap:14px">
+        <li class="card card--light card--num" data-num="01"><h3>Conversa inicial</h3><p>Entendemos o cenário, o processo atual e o que precisa mudar.</p></li>
+        <li class="card card--light card--num" data-num="02"><h3>Direção proposta</h3><p>Apresentamos o caminho, o escopo e o que faz sentido priorizar.</p></li>
+        <li class="card card--light card--num" data-num="03"><h3>Construção e ajuste</h3><p>Entregamos em etapas, com uso real e refinamento a cada ciclo.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section section--darker section--tight">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:34px">
+      <p class="eyebrow reveal" style="justify-content:center">Ecossistema</p>
+      <h2 class="h-md reveal" data-delay="1">Outras soluções Seoriente</h2>
+    </div>
+    <div class="grid grid-3">
+      <a class="card card--link reveal" href="#/orizon-broker">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l2-5h9l2 5h3"/><path d="M6 12V6h9l3 6"/><circle cx="7.5" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></div>
+        <h3>Orizon Broker</h3>
+        <p>Corretagem · Operações · Logística</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/seoriente-ia">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9.5 10.5h.01M14.5 10.5h.01M9.5 14.5h5"/><path d="M12 3v3M3 12h3M18 12h3M12 18v3"/></svg></div>
+        <h3>Seoriente IA</h3>
+        <p>Inteligência artificial aplicada</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/seoriente-bi">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+        <h3>Seoriente BI</h3>
+        <p>Dados · Indicadores · Decisão</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="container center">
+    <p class="eyebrow reveal" style="justify-content:center">Vamos conversar</p>
+    <h2 class="h-lg reveal" data-delay="1">Conte o seu desafio. A gente ajuda a encontrar a direção.</h2>
+    <p class="lead reveal" data-delay="2">Cada empresa tem um cenário. Vamos entender o seu antes de falar de solução.</p>
+    <div class="btn-row reveal" data-delay="3">
+      <a class="btn btn--gold" href="#/home:contato">Falar com a gente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#/solucoes">Ver todas as soluções</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+        <p>Mais que soluções. Novos caminhos. Tecnologia para transformar informação em direção.</p>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#/home:quem-somos">Quem somos</a></li>
+          <li><a href="#/home:proposito">Propósito</a></li>
+          <li><a href="#/home:valores">Valores</a></li>
+          <li><a href="#/home:forma-de-pensar">Como pensamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#/orizon-broker">Orizon Broker</a></li>
+          <li><a href="#/daroca">Daroça</a></li>
+          <li><a href="#/seoriente-ia">Seoriente IA</a></li>
+          <li><a href="#/seoriente-bi">Seoriente BI</a></li>
+          <li><a href="#/seoriente-automacao">Seoriente Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a></li>
+          <li><a href="#/home:contato">Formulário de contato</a></li>
+          <li><a href="#/area">Área do Cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Seoriente Soluções. Todos os direitos reservados.</span>
+      <span class="footer__tag">Mais que soluções. Novos caminhos.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+<div class="pv-page" id="pv-seoriente-ia" hidden>
+
+<header class="header is-solid">
+  <div class="container header__inner">
+    <a class="brand" href="#/home" aria-label="Seoriente Soluções — página inicial">
+      <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#/home:quem-somos">Quem somos</a>
+      <a href="#/home:o-que-fazemos">O que fazemos</a>
+      <div class="nav__item">
+        <button class="nav__toggle" type="button" aria-haspopup="true">Soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown" role="menu">
+          <a href="#/orizon-broker"><strong>Orizon Broker</strong><span>Corretagem · Operações · Logística</span></a>
+          <a href="#/daroca"><strong>Daroça</strong><span>Gestão rural · Campo · Produção</span></a>
+          <a href="#/seoriente-ia"><strong>Seoriente IA</strong><span>Inteligência artificial aplicada</span></a>
+          <a href="#/seoriente-bi"><strong>Seoriente BI</strong><span>Dados · Indicadores · Decisão</span></a>
+          <a href="#/seoriente-automacao"><strong>Seoriente Automação</strong><span>Processos · Integrações · Eficiência</span></a>
+        </div>
+      </div>
+      <a href="#/home:forma-de-pensar">Como pensamos</a>
+      <a href="#/home:contato">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#/home:quem-somos">Quem somos</a>
+  <a href="#/home:o-que-fazemos">O que fazemos</a>
+  <a href="#/solucoes">Soluções</a>
+  <div class="sub">
+    <a href="#/orizon-broker">Orizon Broker</a>
+    <a href="#/daroca">Daroça</a>
+    <a href="#/seoriente-ia">Seoriente IA</a>
+    <a href="#/seoriente-bi">Seoriente BI</a>
+    <a href="#/seoriente-automacao">Seoriente Automação</a>
+  </div>
+  <a href="#/home:forma-de-pensar">Como pensamos</a>
+  <a href="#/home:contato">Contato</a>
+  <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+</div>
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb reveal" aria-label="Você está aqui">
+      <a href="#/home">Início</a><span>/</span><a href="#/solucoes">Soluções</a><span>/</span><span class="gold">Seoriente IA</span>
+    </nav>
+    <div class="split" style="align-items:center">
+      <div>
+        <p class="eyebrow reveal">Inteligência artificial aplicada</p>
+        <h1 class="reveal" data-delay="1">Inteligência artificial aplicada a negócios e processos.</h1>
+        <p class="lead reveal" data-delay="2">IA não é destino, é ferramenta. O Seoriente IA aplica inteligência artificial onde ela resolve um problema concreto: entender documentos, responder mais rápido, apoiar decisões e ampliar a capacidade de um time sem aumentar o esforço.</p>
+        <div class="btn-row reveal" data-delay="3">
+          <a class="btn btn--gold" href="#/home:contato">Quero conhecer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="#recursos">Ver o que faz</a>
+        </div>
+      </div>
+      <div class="reveal" data-delay="2" style="justify-self:center">
+        <div class="card solution-card">
+          <img class="solution-card__mark" src="images/symbol.png" alt="" aria-hidden="true">
+          <div class="card__icon"><svg style="width:30px;height:30px" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9.5 10.5h.01M14.5 10.5h.01M9.5 14.5h5"/><path d="M12 3v3M3 12h3M18 12h3M12 18v3"/></svg></div>
+          <h3 class="h-md" style="margin-bottom:.2em">Seoriente IA</h3>
+          <small>Ecossistema Seoriente</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">O desafio</p>
+      <h2 class="h-lg reveal" data-delay="1">Muita expectativa, pouca aplicação prática</h2>
+      <ul class="checks reveal" data-delay="2" style="margin-top:10px">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Times gastando horas em leitura, triagem e resposta de textos repetitivos.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Conhecimento da empresa espalhado em documentos que ninguém consegue consultar.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Projetos de IA que impressionam na demonstração e não entram na operação.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Dúvida sobre onde a IA realmente vale o investimento.</li>
+      </ul>
+    </div>
+    <div class="card card--light reveal" data-delay="2">
+      <p class="eyebrow" style="margin-bottom:12px">A nossa resposta</p>
+      <h3 class="h-md">IA acoplada ao processo que já existe</h3>
+      <p>Começamos pelo processo, não pela tecnologia. Identificamos onde a inteligência artificial encurta caminho, definimos o escopo com clareza e entregamos algo que roda dentro da rotina da empresa — com supervisão humana onde ela é necessária.</p>
+      <p class="gold" style="font-family:var(--font-display);font-weight:600;margin-bottom:0">Problema → Análise → Direção → Solução → Resultado</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" id="recursos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">O que o Seoriente IA faz</p>
+      <h2 class="h-lg reveal" data-delay="1">Recursos pensados para a rotina real</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+        <h3>Leitura de documentos</h3>
+        <p>Extração e organização de informações de contratos, notas e relatórios.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></div>
+        <h3>Busca no conhecimento</h3>
+        <p>Consulta em linguagem natural sobre a base de documentos da empresa.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 13.8 9l5.5 1.8L13.8 12.6 12 18.1l-1.8-5.5L4.7 10.8 10.2 9 12 3.5Z"/><path d="M18.5 3.2v3M20 4.7h-3"/></svg></div>
+        <h3>Assistentes internos</h3>
+        <p>Apoio a times de atendimento, comercial e operação em tarefas repetitivas.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6a3 3 0 0 1 3 3v4a3 3 0 0 0 3 3h4"/><path d="m17 4 3 3-3 3M17 14l3 3-3 3"/><circle cx="4" cy="7" r="1.6"/></svg></div>
+        <h3>Automação com IA</h3>
+        <p>Classificação, triagem e encaminhamento automático de demandas.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4"/></svg></div>
+        <h3>Apoio à decisão</h3>
+        <p>Resumos, comparações e sinalizações que ajudam a decidir mais rápido.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.3 2.9 7.9 7 9 4.1-1.1 7-4.7 7-9V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Uso responsável</h3>
+        <p>Escopo definido, dados controlados e revisão humana onde é necessária.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">Para quem é</p>
+      <h2 class="h-lg reveal" data-delay="1">Feito para quem precisa de clareza para decidir</h2>
+      <ul class="checks reveal" data-delay="2">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Empresas com alto volume de documentos e textos</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Times de atendimento e backoffice sobrecarregados</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Negócios que querem testar IA com escopo claro</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Gestores que buscam ganho real, não demonstração</li>
+      </ul>
+    </div>
+    <div class="reveal" data-delay="2">
+      <p class="eyebrow">Como começamos</p>
+      <ol class="grid" style="gap:14px">
+        <li class="card card--light card--num" data-num="01"><h3>Conversa inicial</h3><p>Entendemos o cenário, o processo atual e o que precisa mudar.</p></li>
+        <li class="card card--light card--num" data-num="02"><h3>Direção proposta</h3><p>Apresentamos o caminho, o escopo e o que faz sentido priorizar.</p></li>
+        <li class="card card--light card--num" data-num="03"><h3>Construção e ajuste</h3><p>Entregamos em etapas, com uso real e refinamento a cada ciclo.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section section--darker section--tight">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:34px">
+      <p class="eyebrow reveal" style="justify-content:center">Ecossistema</p>
+      <h2 class="h-md reveal" data-delay="1">Outras soluções Seoriente</h2>
+    </div>
+    <div class="grid grid-3">
+      <a class="card card--link reveal" href="#/orizon-broker">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l2-5h9l2 5h3"/><path d="M6 12V6h9l3 6"/><circle cx="7.5" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></div>
+        <h3>Orizon Broker</h3>
+        <p>Corretagem · Operações · Logística</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/daroca">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3.2-7 7-7 0 4-3.2 7-7 7Z"/><path d="M12 17c-3.9 0-7-2.6-7-5.8 3.9 0 7 2.6 7 5.8Z"/></svg></div>
+        <h3>Daroça</h3>
+        <p>Gestão rural · Campo · Produção</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/seoriente-bi">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+        <h3>Seoriente BI</h3>
+        <p>Dados · Indicadores · Decisão</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="container center">
+    <p class="eyebrow reveal" style="justify-content:center">Vamos conversar</p>
+    <h2 class="h-lg reveal" data-delay="1">Conte o seu desafio. A gente ajuda a encontrar a direção.</h2>
+    <p class="lead reveal" data-delay="2">Cada empresa tem um cenário. Vamos entender o seu antes de falar de solução.</p>
+    <div class="btn-row reveal" data-delay="3">
+      <a class="btn btn--gold" href="#/home:contato">Falar com a gente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#/solucoes">Ver todas as soluções</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+        <p>Mais que soluções. Novos caminhos. Tecnologia para transformar informação em direção.</p>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#/home:quem-somos">Quem somos</a></li>
+          <li><a href="#/home:proposito">Propósito</a></li>
+          <li><a href="#/home:valores">Valores</a></li>
+          <li><a href="#/home:forma-de-pensar">Como pensamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#/orizon-broker">Orizon Broker</a></li>
+          <li><a href="#/daroca">Daroça</a></li>
+          <li><a href="#/seoriente-ia">Seoriente IA</a></li>
+          <li><a href="#/seoriente-bi">Seoriente BI</a></li>
+          <li><a href="#/seoriente-automacao">Seoriente Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a></li>
+          <li><a href="#/home:contato">Formulário de contato</a></li>
+          <li><a href="#/area">Área do Cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Seoriente Soluções. Todos os direitos reservados.</span>
+      <span class="footer__tag">Mais que soluções. Novos caminhos.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+<div class="pv-page" id="pv-seoriente-bi" hidden>
+
+<header class="header is-solid">
+  <div class="container header__inner">
+    <a class="brand" href="#/home" aria-label="Seoriente Soluções — página inicial">
+      <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#/home:quem-somos">Quem somos</a>
+      <a href="#/home:o-que-fazemos">O que fazemos</a>
+      <div class="nav__item">
+        <button class="nav__toggle" type="button" aria-haspopup="true">Soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown" role="menu">
+          <a href="#/orizon-broker"><strong>Orizon Broker</strong><span>Corretagem · Operações · Logística</span></a>
+          <a href="#/daroca"><strong>Daroça</strong><span>Gestão rural · Campo · Produção</span></a>
+          <a href="#/seoriente-ia"><strong>Seoriente IA</strong><span>Inteligência artificial aplicada</span></a>
+          <a href="#/seoriente-bi"><strong>Seoriente BI</strong><span>Dados · Indicadores · Decisão</span></a>
+          <a href="#/seoriente-automacao"><strong>Seoriente Automação</strong><span>Processos · Integrações · Eficiência</span></a>
+        </div>
+      </div>
+      <a href="#/home:forma-de-pensar">Como pensamos</a>
+      <a href="#/home:contato">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#/home:quem-somos">Quem somos</a>
+  <a href="#/home:o-que-fazemos">O que fazemos</a>
+  <a href="#/solucoes">Soluções</a>
+  <div class="sub">
+    <a href="#/orizon-broker">Orizon Broker</a>
+    <a href="#/daroca">Daroça</a>
+    <a href="#/seoriente-ia">Seoriente IA</a>
+    <a href="#/seoriente-bi">Seoriente BI</a>
+    <a href="#/seoriente-automacao">Seoriente Automação</a>
+  </div>
+  <a href="#/home:forma-de-pensar">Como pensamos</a>
+  <a href="#/home:contato">Contato</a>
+  <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+</div>
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb reveal" aria-label="Você está aqui">
+      <a href="#/home">Início</a><span>/</span><a href="#/solucoes">Soluções</a><span>/</span><span class="gold">Seoriente BI</span>
+    </nav>
+    <div class="split" style="align-items:center">
+      <div>
+        <p class="eyebrow reveal">Dados · Indicadores · Decisão</p>
+        <h1 class="reveal" data-delay="1">Dados transformados em informação para decisões mais inteligentes.</h1>
+        <p class="lead reveal" data-delay="2">Ter dados é importante. Saber para onde eles apontam é o que faz a diferença. O Seoriente BI reúne as informações que hoje estão espalhadas e devolve indicadores claros, atualizados e confiáveis.</p>
+        <div class="btn-row reveal" data-delay="3">
+          <a class="btn btn--gold" href="#/home:contato">Quero conhecer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="#recursos">Ver o que faz</a>
+        </div>
+      </div>
+      <div class="reveal" data-delay="2" style="justify-self:center">
+        <div class="card solution-card">
+          <img class="solution-card__mark" src="images/symbol.png" alt="" aria-hidden="true">
+          <div class="card__icon"><svg style="width:30px;height:30px" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+          <h3 class="h-md" style="margin-bottom:.2em">Seoriente BI</h3>
+          <small>Ecossistema Seoriente</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">O desafio</p>
+      <h2 class="h-lg reveal" data-delay="1">O relatório chega tarde — e ninguém confia nele</h2>
+      <ul class="checks reveal" data-delay="2" style="margin-top:10px">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Números diferentes para a mesma pergunta, dependendo da planilha.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Horas de trabalho manual todo mês só para montar o relatório.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Indicadores que chegam depois da hora de decidir.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Informação disponível, mas difícil de ler e de comparar.</li>
+      </ul>
+    </div>
+    <div class="card card--light reveal" data-delay="2">
+      <p class="eyebrow" style="margin-bottom:12px">A nossa resposta</p>
+      <h3 class="h-md">Uma fonte de verdade, um painel que responde</h3>
+      <p>Conectamos as origens de dados, tratamos o que precisa ser tratado e desenhamos painéis a partir das perguntas que o negócio realmente faz. O resultado é um indicador que todo mundo lê da mesma forma.</p>
+      <p class="gold" style="font-family:var(--font-display);font-weight:600;margin-bottom:0">Problema → Análise → Direção → Solução → Resultado</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" id="recursos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">O que o Seoriente BI faz</p>
+      <h2 class="h-lg reveal" data-delay="1">Recursos pensados para a rotina real</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8Z"/><path d="M12 17v4"/></svg></div>
+        <h3>Integração de origens</h3>
+        <p>Sistemas, planilhas e bases diferentes reunidos em um só lugar.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5M3 17l9 5 9-5"/></svg></div>
+        <h3>Tratamento de dados</h3>
+        <p>Padronização e limpeza para que os números fechem.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V13M10 20V8M16 20v-9M22 20V4"/></svg></div>
+        <h3>Painéis sob medida</h3>
+        <p>Visões desenhadas para cada área, com foco no que muda a decisão.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-13.7-5.3L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 13.7 5.3L20 16"/><path d="M20 20v-4h-4"/></svg></div>
+        <h3>Atualização automática</h3>
+        <p>Informação renovada sem depender de trabalho manual.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6Z"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/></svg></div>
+        <h3>Alertas e metas</h3>
+        <p>Sinalização quando um indicador sai do esperado.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10.5 18.6h3"/></svg></div>
+        <h3>Acesso de qualquer lugar</h3>
+        <p>Os mesmos números no computador e no celular.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">Para quem é</p>
+      <h2 class="h-lg reveal" data-delay="1">Feito para quem precisa de clareza para decidir</h2>
+      <ul class="checks reveal" data-delay="2">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Empresas que fecham relatórios manualmente</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Gestores que precisam comparar períodos e áreas</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Negócios com dados em vários sistemas</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Times que discutem o número em vez de discutir a decisão</li>
+      </ul>
+    </div>
+    <div class="reveal" data-delay="2">
+      <p class="eyebrow">Como começamos</p>
+      <ol class="grid" style="gap:14px">
+        <li class="card card--light card--num" data-num="01"><h3>Conversa inicial</h3><p>Entendemos o cenário, o processo atual e o que precisa mudar.</p></li>
+        <li class="card card--light card--num" data-num="02"><h3>Direção proposta</h3><p>Apresentamos o caminho, o escopo e o que faz sentido priorizar.</p></li>
+        <li class="card card--light card--num" data-num="03"><h3>Construção e ajuste</h3><p>Entregamos em etapas, com uso real e refinamento a cada ciclo.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section section--darker section--tight">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:34px">
+      <p class="eyebrow reveal" style="justify-content:center">Ecossistema</p>
+      <h2 class="h-md reveal" data-delay="1">Outras soluções Seoriente</h2>
+    </div>
+    <div class="grid grid-3">
+      <a class="card card--link reveal" href="#/orizon-broker">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l2-5h9l2 5h3"/><path d="M6 12V6h9l3 6"/><circle cx="7.5" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></div>
+        <h3>Orizon Broker</h3>
+        <p>Corretagem · Operações · Logística</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/daroca">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3.2-7 7-7 0 4-3.2 7-7 7Z"/><path d="M12 17c-3.9 0-7-2.6-7-5.8 3.9 0 7 2.6 7 5.8Z"/></svg></div>
+        <h3>Daroça</h3>
+        <p>Gestão rural · Campo · Produção</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/seoriente-ia">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9.5 10.5h.01M14.5 10.5h.01M9.5 14.5h5"/><path d="M12 3v3M3 12h3M18 12h3M12 18v3"/></svg></div>
+        <h3>Seoriente IA</h3>
+        <p>Inteligência artificial aplicada</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="container center">
+    <p class="eyebrow reveal" style="justify-content:center">Vamos conversar</p>
+    <h2 class="h-lg reveal" data-delay="1">Conte o seu desafio. A gente ajuda a encontrar a direção.</h2>
+    <p class="lead reveal" data-delay="2">Cada empresa tem um cenário. Vamos entender o seu antes de falar de solução.</p>
+    <div class="btn-row reveal" data-delay="3">
+      <a class="btn btn--gold" href="#/home:contato">Falar com a gente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#/solucoes">Ver todas as soluções</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+        <p>Mais que soluções. Novos caminhos. Tecnologia para transformar informação em direção.</p>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#/home:quem-somos">Quem somos</a></li>
+          <li><a href="#/home:proposito">Propósito</a></li>
+          <li><a href="#/home:valores">Valores</a></li>
+          <li><a href="#/home:forma-de-pensar">Como pensamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#/orizon-broker">Orizon Broker</a></li>
+          <li><a href="#/daroca">Daroça</a></li>
+          <li><a href="#/seoriente-ia">Seoriente IA</a></li>
+          <li><a href="#/seoriente-bi">Seoriente BI</a></li>
+          <li><a href="#/seoriente-automacao">Seoriente Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a></li>
+          <li><a href="#/home:contato">Formulário de contato</a></li>
+          <li><a href="#/area">Área do Cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Seoriente Soluções. Todos os direitos reservados.</span>
+      <span class="footer__tag">Mais que soluções. Novos caminhos.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+<div class="pv-page" id="pv-seoriente-automacao" hidden>
+
+<header class="header is-solid">
+  <div class="container header__inner">
+    <a class="brand" href="#/home" aria-label="Seoriente Soluções — página inicial">
+      <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#/home:quem-somos">Quem somos</a>
+      <a href="#/home:o-que-fazemos">O que fazemos</a>
+      <div class="nav__item">
+        <button class="nav__toggle" type="button" aria-haspopup="true">Soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown" role="menu">
+          <a href="#/orizon-broker"><strong>Orizon Broker</strong><span>Corretagem · Operações · Logística</span></a>
+          <a href="#/daroca"><strong>Daroça</strong><span>Gestão rural · Campo · Produção</span></a>
+          <a href="#/seoriente-ia"><strong>Seoriente IA</strong><span>Inteligência artificial aplicada</span></a>
+          <a href="#/seoriente-bi"><strong>Seoriente BI</strong><span>Dados · Indicadores · Decisão</span></a>
+          <a href="#/seoriente-automacao"><strong>Seoriente Automação</strong><span>Processos · Integrações · Eficiência</span></a>
+        </div>
+      </div>
+      <a href="#/home:forma-de-pensar">Como pensamos</a>
+      <a href="#/home:contato">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#/home:quem-somos">Quem somos</a>
+  <a href="#/home:o-que-fazemos">O que fazemos</a>
+  <a href="#/solucoes">Soluções</a>
+  <div class="sub">
+    <a href="#/orizon-broker">Orizon Broker</a>
+    <a href="#/daroca">Daroça</a>
+    <a href="#/seoriente-ia">Seoriente IA</a>
+    <a href="#/seoriente-bi">Seoriente BI</a>
+    <a href="#/seoriente-automacao">Seoriente Automação</a>
+  </div>
+  <a href="#/home:forma-de-pensar">Como pensamos</a>
+  <a href="#/home:contato">Contato</a>
+  <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+</div>
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb reveal" aria-label="Você está aqui">
+      <a href="#/home">Início</a><span>/</span><a href="#/solucoes">Soluções</a><span>/</span><span class="gold">Seoriente Automação</span>
+    </nav>
+    <div class="split" style="align-items:center">
+      <div>
+        <p class="eyebrow reveal">Processos · Integrações · Eficiência</p>
+        <h1 class="reveal" data-delay="1">Processos mais simples, rápidos e eficientes por meio da automação.</h1>
+        <p class="lead reveal" data-delay="2">Toda operação tem tarefas que se repetem todos os dias. O Seoriente Automação identifica esses pontos, conecta os sistemas envolvidos e devolve tempo para o time fazer o que só uma pessoa consegue fazer.</p>
+        <div class="btn-row reveal" data-delay="3">
+          <a class="btn btn--gold" href="#/home:contato">Quero conhecer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="#recursos">Ver o que faz</a>
+        </div>
+      </div>
+      <div class="reveal" data-delay="2" style="justify-self:center">
+        <div class="card solution-card">
+          <img class="solution-card__mark" src="images/symbol.png" alt="" aria-hidden="true">
+          <div class="card__icon"><svg style="width:30px;height:30px" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6a3 3 0 0 1 3 3v4a3 3 0 0 0 3 3h4"/><path d="m17 4 3 3-3 3M17 14l3 3-3 3"/><circle cx="4" cy="7" r="1.6"/></svg></div>
+          <h3 class="h-md" style="margin-bottom:.2em">Seoriente Automação</h3>
+          <small>Ecossistema Seoriente</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">O desafio</p>
+      <h2 class="h-lg reveal" data-delay="1">Tempo demais em tarefa que ninguém deveria fazer à mão</h2>
+      <ul class="checks reveal" data-delay="2" style="margin-top:10px">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Cópia manual de informação de um sistema para outro.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Planilhas de controle que só existem porque os sistemas não conversam.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Erros e retrabalho causados por etapas manuais.</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Processos que dependem de uma pessoa específica para andar.</li>
+      </ul>
+    </div>
+    <div class="card card--light reveal" data-delay="2">
+      <p class="eyebrow" style="margin-bottom:12px">A nossa resposta</p>
+      <h3 class="h-md">Menos passos manuais, mais processo confiável</h3>
+      <p>Mapeamos o fluxo como ele realmente acontece, encontramos os pontos de repetição e automatizamos o que pode ser automatizado — com registro de cada execução, para que o processo continue visível.</p>
+      <p class="gold" style="font-family:var(--font-display);font-weight:600;margin-bottom:0">Problema → Análise → Direção → Solução → Resultado</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark" id="recursos">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow reveal">O que o Seoriente Automação faz</p>
+      <h2 class="h-lg reveal" data-delay="1">Recursos pensados para a rotina real</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></div>
+        <h3>Mapeamento do fluxo</h3>
+        <p>Entendimento do processo real, com seus desvios e exceções.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8Z"/><path d="M12 17v4"/></svg></div>
+        <h3>Integração entre sistemas</h3>
+        <p>Sistemas que passam a trocar informação sem intermediário.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6a3 3 0 0 1 3 3v4a3 3 0 0 0 3 3h4"/><path d="m17 4 3 3-3 3M17 14l3 3-3 3"/><circle cx="4" cy="7" r="1.6"/></svg></div>
+        <h3>Rotinas automáticas</h3>
+        <p>Tarefas repetitivas executadas sozinhas, no horário certo.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+        <h3>Documentos e relatórios</h3>
+        <p>Geração e envio automático do que hoje é feito à mão.</p>
+      </article>
+      <article class="card reveal" data-delay="1">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6Z"/><path d="M13.7 20a2 2 0 0 1-3.4 0"/></svg></div>
+        <h3>Notificações</h3>
+        <p>Avisos automáticos para quem precisa agir.</p>
+      </article>
+      <article class="card reveal" data-delay="2">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Registro de execução</h3>
+        <p>Histórico de cada rodada, para acompanhar e corrigir rápido.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light">
+  <div class="container split">
+    <div>
+      <p class="eyebrow reveal">Para quem é</p>
+      <h2 class="h-lg reveal" data-delay="1">Feito para quem precisa de clareza para decidir</h2>
+      <ul class="checks reveal" data-delay="2">
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Operações com tarefas manuais repetitivas</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Empresas com sistemas que não se conversam</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Times de backoffice, financeiro e operações</li>
+        <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Negócios em crescimento que não querem crescer o esforço junto</li>
+      </ul>
+    </div>
+    <div class="reveal" data-delay="2">
+      <p class="eyebrow">Como começamos</p>
+      <ol class="grid" style="gap:14px">
+        <li class="card card--light card--num" data-num="01"><h3>Conversa inicial</h3><p>Entendemos o cenário, o processo atual e o que precisa mudar.</p></li>
+        <li class="card card--light card--num" data-num="02"><h3>Direção proposta</h3><p>Apresentamos o caminho, o escopo e o que faz sentido priorizar.</p></li>
+        <li class="card card--light card--num" data-num="03"><h3>Construção e ajuste</h3><p>Entregamos em etapas, com uso real e refinamento a cada ciclo.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section section--darker section--tight">
+  <div class="container">
+    <div class="section-head center" style="margin-bottom:34px">
+      <p class="eyebrow reveal" style="justify-content:center">Ecossistema</p>
+      <h2 class="h-md reveal" data-delay="1">Outras soluções Seoriente</h2>
+    </div>
+    <div class="grid grid-3">
+      <a class="card card--link reveal" href="#/orizon-broker">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l2-5h9l2 5h3"/><path d="M6 12V6h9l3 6"/><circle cx="7.5" cy="19" r="1.8"/><circle cx="17" cy="19" r="1.8"/></svg></div>
+        <h3>Orizon Broker</h3>
+        <p>Corretagem · Operações · Logística</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/daroca">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3.2-7 7-7 0 4-3.2 7-7 7Z"/><path d="M12 17c-3.9 0-7-2.6-7-5.8 3.9 0 7 2.6 7 5.8Z"/></svg></div>
+        <h3>Daroça</h3>
+        <p>Gestão rural · Campo · Produção</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="card card--link reveal" href="#/seoriente-ia">
+        <div class="card__icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9.5 10.5h.01M14.5 10.5h.01M9.5 14.5h5"/><path d="M12 3v3M3 12h3M18 12h3M12 18v3"/></svg></div>
+        <h3>Seoriente IA</h3>
+        <p>Inteligência artificial aplicada</p>
+        <span class="link-arrow">Ver solução <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="container center">
+    <p class="eyebrow reveal" style="justify-content:center">Vamos conversar</p>
+    <h2 class="h-lg reveal" data-delay="1">Conte o seu desafio. A gente ajuda a encontrar a direção.</h2>
+    <p class="lead reveal" data-delay="2">Cada empresa tem um cenário. Vamos entender o seu antes de falar de solução.</p>
+    <div class="btn-row reveal" data-delay="3">
+      <a class="btn btn--gold" href="#/home:contato">Falar com a gente <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#/solucoes">Ver todas as soluções</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+        <p>Mais que soluções. Novos caminhos. Tecnologia para transformar informação em direção.</p>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#/home:quem-somos">Quem somos</a></li>
+          <li><a href="#/home:proposito">Propósito</a></li>
+          <li><a href="#/home:valores">Valores</a></li>
+          <li><a href="#/home:forma-de-pensar">Como pensamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#/orizon-broker">Orizon Broker</a></li>
+          <li><a href="#/daroca">Daroça</a></li>
+          <li><a href="#/seoriente-ia">Seoriente IA</a></li>
+          <li><a href="#/seoriente-bi">Seoriente BI</a></li>
+          <li><a href="#/seoriente-automacao">Seoriente Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a></li>
+          <li><a href="#/home:contato">Formulário de contato</a></li>
+          <li><a href="#/area">Área do Cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Seoriente Soluções. Todos os direitos reservados.</span>
+      <span class="footer__tag">Mais que soluções. Novos caminhos.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+<div class="pv-page" id="pv-area" hidden>
+
+<meta name="robots" content="noindex">
+<header class="header is-solid">
+  <div class="container header__inner">
+    <a class="brand" href="#/home" aria-label="Seoriente Soluções — página inicial">
+      <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+    </a>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#/home:quem-somos">Quem somos</a>
+      <a href="#/home:o-que-fazemos">O que fazemos</a>
+      <div class="nav__item">
+        <button class="nav__toggle" type="button" aria-haspopup="true">Soluções
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="dropdown" role="menu">
+          <a href="#/orizon-broker"><strong>Orizon Broker</strong><span>Corretagem · Operações · Logística</span></a>
+          <a href="#/daroca"><strong>Daroça</strong><span>Gestão rural · Campo · Produção</span></a>
+          <a href="#/seoriente-ia"><strong>Seoriente IA</strong><span>Inteligência artificial aplicada</span></a>
+          <a href="#/seoriente-bi"><strong>Seoriente BI</strong><span>Dados · Indicadores · Decisão</span></a>
+          <a href="#/seoriente-automacao"><strong>Seoriente Automação</strong><span>Processos · Integrações · Eficiência</span></a>
+        </div>
+      </div>
+      <a href="#/home:forma-de-pensar">Como pensamos</a>
+      <a href="#/home:contato">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <a href="#/home:quem-somos">Quem somos</a>
+  <a href="#/home:o-que-fazemos">O que fazemos</a>
+  <a href="#/solucoes">Soluções</a>
+  <div class="sub">
+    <a href="#/orizon-broker">Orizon Broker</a>
+    <a href="#/daroca">Daroça</a>
+    <a href="#/seoriente-ia">Seoriente IA</a>
+    <a href="#/seoriente-bi">Seoriente BI</a>
+    <a href="#/seoriente-automacao">Seoriente Automação</a>
+  </div>
+  <a href="#/home:forma-de-pensar">Como pensamos</a>
+  <a href="#/home:contato">Contato</a>
+  <a class="btn btn--gold" href="#/area">Área do Cliente</a>
+</div>
+<main>
+<section class="page-hero" style="padding-bottom:clamp(70px,8vw,110px)">
+  <div class="container">
+    <nav class="breadcrumb reveal" aria-label="Você está aqui">
+      <a href="#/home">Início</a><span>/</span><span class="gold">Área do Cliente</span>
+    </nav>
+    <div class="split" style="align-items:center">
+      <div>
+        <p class="eyebrow reveal">Acesso aos sistemas</p>
+        <h1 class="reveal" data-delay="1">Seus sistemas Seoriente, em um só lugar.</h1>
+        <p class="lead reveal" data-delay="2">O Orizon Broker já está no ar. As demais plataformas do ecossistema Seoriente vão ganhando acesso próprio aqui conforme entram no ar.</p>
+        <ul class="checks reveal" data-delay="3">
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Um único acesso para todas as plataformas contratadas.</li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Permissões por perfil, definidas pela sua empresa.</li>
+          <li><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4.5 4.5L19 7"/></svg>Suporte direto com o time que construiu a solução.</li>
+        </ul>
+        <div class="btn-row reveal" data-delay="4">
+          <a class="btn btn--gold" href="#/home:contato">Quero ser avisado <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--ghost" href="#/solucoes">Conhecer as soluções</a>
+        </div>
+      </div>
+
+      <div class="reveal" data-delay="2" style="justify-self:center;width:min(400px,100%)">
+        <div class="card" style="background:rgba(4,18,15,.55);border-color:rgba(201,164,106,.30)">
+          <div style="text-align:center;margin-bottom:26px">
+            <img src="images/symbol.png" alt="" aria-hidden="true" style="width:56px;margin:0 auto 14px">
+            <h2 class="h-sm" style="margin-bottom:6px">Entrar na plataforma</h2>
+            <p style="font-size:.86rem;margin:0" class="muted">Acesso em preparação</p>
+          </div>
+          <a class="btn btn--gold" href="https://orizon.seorientesolucoes.com.br" style="width:100%;justify-content:center">Entrar no Orizon
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="form__note" style="text-align:center;margin-top:16px">Precisa de acesso a outro sistema? <a class="gold" href="#/home:contato">Fale com a gente</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--light section--tight">
+  <div class="container center">
+    <p class="eyebrow reveal" style="justify-content:center">Enquanto isso</p>
+    <h2 class="h-md reveal" data-delay="1">Precisa de suporte agora?</h2>
+    <p class="lead reveal" data-delay="2">Escreva para <a class="gold" href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a> que direcionamos você para o time responsável pelo seu sistema.</p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <img src="images/logo-horizontal.png" alt="Seoriente Soluções" width="318" height="90">
+        <p>Mais que soluções. Novos caminhos. Tecnologia para transformar informação em direção.</p>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#/home:quem-somos">Quem somos</a></li>
+          <li><a href="#/home:proposito">Propósito</a></li>
+          <li><a href="#/home:valores">Valores</a></li>
+          <li><a href="#/home:forma-de-pensar">Como pensamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Soluções</h4>
+        <ul>
+          <li><a href="#/orizon-broker">Orizon Broker</a></li>
+          <li><a href="#/daroca">Daroça</a></li>
+          <li><a href="#/seoriente-ia">Seoriente IA</a></li>
+          <li><a href="#/seoriente-bi">Seoriente BI</a></li>
+          <li><a href="#/seoriente-automacao">Seoriente Automação</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@seorientesolucoes.com.br">contato@seorientesolucoes.com.br</a></li>
+          <li><a href="#/home:contato">Formulário de contato</a></li>
+          <li><a href="#/area">Área do Cliente</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Seoriente Soluções. Todos os direitos reservados.</span>
+      <span class="footer__tag">Mais que soluções. Novos caminhos.</span>
+    </div>
+  </div>
+</footer>
+
+
+
+</div>
+
+<script>
+
+(function(){
+  var pages = {};
+  document.querySelectorAll('.pv-page').forEach(function(p){ pages[p.id.replace('pv-','')] = p; });
+
+  function show(id, anchor){
+    if (!pages[id]) id = 'home';
+    Object.keys(pages).forEach(function(k){ pages[k].hidden = (k !== id); });
+    document.body.dataset.page = id;
+    if (anchor){
+      var t = pages[id].querySelector('#' + CSS.escape(anchor));
+      if (t){ setTimeout(function(){ t.scrollIntoView({behavior:'smooth', block:'start'}); }, 30); return; }
+    }
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+
+  function route(){
+    var h = location.hash || '';
+    if (h.indexOf('#/') === 0){
+      var parts = h.slice(2).split(':');
+      show(parts[0], parts[1]);
+    } else if (h.length > 1){
+      var cur = document.body.dataset.page || 'home';
+      var t = pages[cur] && pages[cur].querySelector('#' + CSS.escape(h.slice(1)));
+      if (!t) show('home', h.slice(1));
+    } else {
+      show('home');
+    }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+})();
+
+</script>
+<script>
+/* =========================================================
+   SEORIENTE SOLUÇÕES — scripts do site
+   ========================================================= */
+(function () {
+  'use strict';
+
+  /* ---------------------------------------------------------
+     CONFIGURAÇÃO DO FORMULÁRIO DE CONTATO
+     ---------------------------------------------------------
+     Deixe FORM_ENDPOINT vazio ('') para que o formulário abra
+     o e-mail do visitante já preenchido (funciona sem servidor).
+
+     Para receber as mensagens direto no seu e-mail, crie um
+     formulário gratuito em https://formspree.io (ou Web3Forms)
+     e cole a URL aqui. Exemplo:
+     var FORM_ENDPOINT = 'https://formspree.io/f/xxxxxxx';
+  --------------------------------------------------------- */
+  var FORM_ENDPOINT = '';
+  var CONTACT_EMAIL = 'contato@seorientesolucoes.com.br';
+
+  /* ---------- Header: estado ao rolar ---------- */
+  var header = document.querySelector('.header');
+  function onScroll() {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Menu mobile ---------- */
+  var burger = document.querySelector('.burger');
+  var mobile = document.querySelector('.mobile-menu');
+  if (burger && mobile) {
+    burger.addEventListener('click', function () {
+      var open = mobile.classList.toggle('is-open');
+      burger.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.classList.toggle('no-scroll', open);
+    });
+    mobile.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobile.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+  }
+
+  /* ---------- Revelar elementos ao rolar ---------- */
+  var revealables = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px' });
+    revealables.forEach(function (el) { io.observe(el); });
+  } else {
+    revealables.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- Link ativo por seção (somente na home) ---------- */
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('.nav a[href^="#"], .nav a[href*="#"]');
+  if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var id = e.target.getAttribute('id');
+        navLinks.forEach(function (l) {
+          l.classList.toggle('is-active', (l.getAttribute('href') || '').indexOf('#' + id) > -1);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50%' });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ---------- Ano no rodapé ---------- */
+  document.querySelectorAll('[data-year]').forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+  });
+
+  /* ---------- Formulário de contato ---------- */
+  var form = document.querySelector('form[data-contact]');
+  if (form) {
+    var status = form.querySelector('.form__status');
+    var button = form.querySelector('button[type="submit"]');
+
+    function setStatus(msg, ok) {
+      if (!status) return;
+      status.textContent = msg;
+      status.className = 'form__status ' + (ok ? 'is-ok' : 'is-err');
+    }
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var data = new FormData(form);
+      var nome = (data.get('nome') || '').toString().trim();
+      var email = (data.get('email') || '').toString().trim();
+      var mensagem = (data.get('mensagem') || '').toString().trim();
+
+      if (!nome || !email || !mensagem) {
+        setStatus('Preencha nome, e-mail e mensagem para continuar.', false);
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setStatus('Confira o e-mail informado.', false);
+        return;
+      }
+
+      if (!FORM_ENDPOINT) {
+        var corpo =
+          'Nome: ' + nome + '\n' +
+          'E-mail: ' + email + '\n' +
+          'Empresa: ' + (data.get('empresa') || '-') + '\n' +
+          'Telefone: ' + (data.get('telefone') || '-') + '\n' +
+          'Assunto: ' + (data.get('assunto') || '-') + '\n\n' +
+          mensagem;
+        window.location.href = 'mailto:' + CONTACT_EMAIL +
+          '?subject=' + encodeURIComponent('Contato pelo site — ' + nome) +
+          '&body=' + encodeURIComponent(corpo);
+        setStatus('Abrimos seu programa de e-mail com a mensagem pronta. Se não abrir, escreva para ' + CONTACT_EMAIL + '.', true);
+        return;
+      }
+
+      if (button) { button.disabled = true; button.dataset.label = button.textContent; button.textContent = 'Enviando...'; }
+      fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error('falha');
+          form.reset();
+          setStatus('Mensagem enviada. Obrigado — retornamos em breve.', true);
+        })
+        .catch(function () {
+          setStatus('Não conseguimos enviar agora. Escreva para ' + CONTACT_EMAIL + '.', false);
+        })
+        .finally(function () {
+          if (button) { button.disabled = false; button.textContent = button.dataset.label || 'Enviar mensagem'; }
+        });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
